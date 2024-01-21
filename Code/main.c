@@ -11,13 +11,14 @@ typedef enum {
     STATIC = 2
 } Fanmode_t;
 
-// ADC Globals
+// ADC variables
 float ADCValue_ = 0;
 float temperature = 0;
 float vrt = 0;
 float rt = 0;
 
 // Mode variables
+#define BUTTON_DEBOUNCE() (__delay_cycles(90000))
 Fanmode_t current_mode = STATIC;
 bool has_toggled_mode = false;
 
@@ -50,6 +51,28 @@ void init_GPIO()
     P1IFG &= BIT2;
 }
 
+// Handle cycling of fan modes
+void cycle_fan_mode()
+{
+    switch(current_mode)
+    {
+    case STATIC:
+        current_mode = SWEEP;
+        break;
+    case SWEEP:
+        current_mode = TRACK;
+        break;
+    case TRACK:
+        current_mode = STATIC;
+        break;
+    }
+}
+
+// Trigger the ADC to take temperature reading
+void measure_temperature()
+{
+    ADC_startConversion(ADC_BASE, ADC_SINGLECHANNEL);
+}
 
 
 int main(void)
@@ -68,16 +91,17 @@ int main(void)
 
 	while (1)
 	{
+	    // Handle mode updates
 	    if (has_toggled_mode)
 	    {
-	        // Update the LCD to display the new mode
+	        BUTTON_DEBOUNCE();
+	        cycle_fan_mode();
 	        displayFanMode(current_mode);
-	        __delay_cycles(200000);
 	        has_toggled_mode = false;
 	    }
 
-
-	    /*ADC_startConversion(ADC_BASE, ADC_SINGLECHANNEL);
+	    // Take temperature reading
+	    measure_temperature();
 
 	    if (temperature > 18.0)
 	    {
@@ -86,8 +110,7 @@ int main(void)
 	    else
 	    {
 	        P4OUT &= ~BIT0;
-	    }*/
-	//}
+	    }
 	}
 
 	return 0;
@@ -131,19 +154,6 @@ __interrupt void P1_ISR(void)
     {
     // Mode select button pressed
     case P1IV_P1IFG2:
-        // Cycle through modes
-        if (current_mode == STATIC && !has_toggled_mode)
-        {
-            current_mode = SWEEP;
-        }
-        else if (current_mode == SWEEP && !has_toggled_mode)
-        {
-            current_mode = TRACK;
-        }
-        else if (current_mode == TRACK && !has_toggled_mode)
-        {
-            current_mode = STATIC;
-        }
         // Set the mode toggle flag
         has_toggled_mode = true;
         // Clear the interrupt
