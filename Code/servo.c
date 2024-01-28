@@ -44,16 +44,15 @@ void servo_reset_pos()
     TA0CCR1 = PWM_MIN_DUTY;
 }
 
-void servo_cycle_gradual(int current_angle, int new_angle) {
+void servo_cycle_gradual(int current_angle, int new_angle)
+{
     // Determine the direction of movement
     int increment = (current_angle < new_angle) ? 1 : -1;
 
-    while (current_angle != new_angle) {
+    while (current_angle != new_angle)
+    {
         servo_to_angle(current_angle);
         current_angle += increment;
         SERVO_DELAY();
     }
 }
-
-
-

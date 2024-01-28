@@ -3,6 +3,11 @@
 #include <math.h>
 #include <stdbool.h>
 #include "hal_LCD.h"
+#include "servo.h"
+
+#define MODE_BUTTON_PIN BIT5 //P1.5
+#define THERMISTOR_PIN BIT1 //P8.1
+#define GREEN_LED_PIN BIT4 //P1.4
 
 // Custom mode types
 typedef enum {
@@ -22,6 +27,11 @@ float rt = 0;
 Fanmode_t current_mode = STATIC;
 bool has_toggled_mode = false;
 
+// Servo variables
+int current_angle = 90; // Degrees
+bool going_cw = true;
+
+
 // Configure the ADC using registers
 void init_adc()
 {
@@ -37,18 +47,18 @@ void init_adc()
 // Configure inputs and outputs used
 void init_GPIO()
 {
-    // Setup LED P4.0 to glow if temp passes 18 degrees c
-    P4DIR |= BIT0;
-    P4OUT &= ~BIT0;
+    // Setup LED to glow if temp passes 18 degrees c
+    P1DIR |= GREEN_LED_PIN;
+    P1OUT &= ~GREEN_LED_PIN;
 
-    // Setup button to toggle fan mode using P1.2
-    P1DIR |= BIT2;
-    P1IN |= BIT2;
-    P1REN |= BIT2;
-    P1OUT |= BIT2;
-    P1IE |= BIT2;
-    P1IES |= BIT2;
-    P1IFG &= BIT2;
+    // Setup button to toggle fan mode
+    P1DIR |= MODE_BUTTON_PIN;
+    P1IN |= MODE_BUTTON_PIN;
+    P1REN |= MODE_BUTTON_PIN;
+    P1OUT |= MODE_BUTTON_PIN;
+    P1IE |= MODE_BUTTON_PIN;
+    P1IES |= MODE_BUTTON_PIN;
+    P1IFG &= MODE_BUTTON_PIN;
 }
 
 // Handle cycling of fan modes
@@ -85,6 +95,8 @@ int main(void)
 	init_adc();
 	Init_LCD();
 	init_GPIO();
+	servo_init();
+	servo_to_angle(90);
 
 	// Enable global interrupts
     __enable_interrupt();
@@ -103,14 +115,56 @@ int main(void)
 	    // Take temperature reading
 	    measure_temperature();
 
+	    // Handle temperature controlled actions
 	    if (temperature > 18.0)
 	    {
-	        P4OUT |= BIT0;
+	        P1OUT |= GREEN_LED_PIN;
 	    }
 	    else
 	    {
-	        P4OUT &= ~BIT0;
+	        P1OUT &= ~GREEN_LED_PIN;
 	    }
+
+	    // Adjust servo position based on mode
+	    switch(current_mode)
+	    {
+	    case STATIC:
+	        servo_to_angle(90);
+	        break;
+
+	    case TRACK:
+	        // handle PIR logic here
+	        break;
+
+	    case SWEEP:
+
+	        // Increment/ Decrement servo angle based on current angle
+	        if(going_cw)
+	        {
+	            current_angle += 10;
+	        }
+	        else
+	        {
+	            current_angle -= 10;
+	        }
+
+	        // Handle direction change at bounds
+	        if (current_angle >= 180)
+	        {
+	            going_cw = false;
+	        }
+	        else if (current_angle <= 0)
+	        {
+	            going_cw = true;
+	        }
+
+	        // Move the servo to the new angle (servo_to_angle handles angle under/overflow)
+	        servo_to_angle(current_angle);
+
+	        break;
+
+	    }
+
 	}
 
 	return 0;
@@ -153,11 +207,11 @@ __interrupt void P1_ISR(void)
     switch (__even_in_range(P1IV, P1IV_P1IFG7))
     {
     // Mode select button pressed
-    case P1IV_P1IFG2:
+    case P1IV_P1IFG5:
         // Set the mode toggle flag
         has_toggled_mode = true;
         // Clear the interrupt
-        P1IFG &= ~BIT2;
+        P1IFG &= ~MODE_BUTTON_PIN;
         break;
     }
 }

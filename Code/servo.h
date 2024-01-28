@@ -61,4 +61,5 @@ void servo_reset_pos();
  */
 void servo_cycle_gradual(int current_angle, int new_angle);
 
+
 #endif /* SERVO_H_ */
