@@ -23,4 +23,4 @@
 void fan_init();
 
 
-#endif /*FANCONTROLLER_H_
+#endif

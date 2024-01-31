@@ -8,6 +8,7 @@
 #define MODE_BUTTON_PIN BIT5 //P1.5
 #define THERMISTOR_PIN BIT1 //P8.1
 #define GREEN_LED_PIN BIT4 //P1.4
+#define PIR_LEFT BIT3 //P1.3
 
 // Custom mode types
 typedef enum {
@@ -15,6 +16,13 @@ typedef enum {
     TRACK = 1,
     STATIC = 2
 } Fanmode_t;
+
+// PIR position to angle
+typedef enum {
+    LEFT = 20,
+    CENTRE = 90,
+    RIGHT = 160
+} PIR_t;
 
 // ADC variables
 float ADCValue_ = 0;
@@ -31,6 +39,8 @@ bool has_toggled_mode = false;
 int current_angle = 90; // Degrees
 bool going_cw = true;
 
+// PIR sensors
+bool pir_activated = false;
 
 // Configure the ADC using registers
 void init_adc()
@@ -47,7 +57,7 @@ void init_adc()
 // Configure inputs and outputs used
 void init_GPIO()
 {
-    // Setup LED to glow if temp passes 18 degrees c
+    // Setup LED to glow if temp passes 18 degrees celsius
     P1DIR |= GREEN_LED_PIN;
     P1OUT &= ~GREEN_LED_PIN;
 
@@ -58,7 +68,16 @@ void init_GPIO()
     P1OUT |= MODE_BUTTON_PIN;
     P1IE |= MODE_BUTTON_PIN;
     P1IES |= MODE_BUTTON_PIN;
-    P1IFG &= MODE_BUTTON_PIN;
+    P1IFG &= ~MODE_BUTTON_PIN;
+
+    // Setup the PIR pins
+    P1DIR &= ~PIR_LEFT;
+    P1IN |= PIR_LEFT;
+    P1REN |= PIR_LEFT;
+    P1OUT |= PIR_LEFT;
+    P1IE |= PIR_LEFT;
+    P1IES &= ~PIR_LEFT; // Low to high transition interrupt for PIR sensor
+    P1IFG &= ~PIR_LEFT;
 }
 
 // Handle cycling of fan modes
@@ -97,13 +116,14 @@ int main(void)
 	init_GPIO();
 	servo_init();
 	servo_to_angle(90);
+	displayFanMode(current_mode);
 
 	// Enable global interrupts
     __enable_interrupt();
 
 	while (1)
 	{
-	    // Handle mode updates
+	    // 1) Handle mode updates
 	    if (has_toggled_mode)
 	    {
 	        BUTTON_DEBOUNCE();
@@ -112,7 +132,8 @@ int main(void)
 	        has_toggled_mode = false;
 	    }
 
-	    // Take temperature reading
+
+	    // 2) Take temperature reading
 	    measure_temperature();
 
 	    // Handle temperature controlled actions
@@ -125,15 +146,23 @@ int main(void)
 	        P1OUT &= ~GREEN_LED_PIN;
 	    }
 
-	    // Adjust servo position based on mode
+	    // 3) Handle mode determined servo actions
 	    switch(current_mode)
 	    {
 	    case STATIC:
 	        servo_to_angle(90);
+	        current_angle = 90;
 	        break;
 
 	    case TRACK:
 	        // handle PIR logic here
+	        if (pir_activated)
+	        {
+	            servo_cycle_gradual(current_angle, LEFT);
+	            current_angle = LEFT;
+	            pir_activated = false;
+	        }
+
 	        break;
 
 	    case SWEEP:
@@ -212,6 +241,12 @@ __interrupt void P1_ISR(void)
         has_toggled_mode = true;
         // Clear the interrupt
         P1IFG &= ~MODE_BUTTON_PIN;
+        break;
+
+    // Left PIR sensor
+    case P1IV_P1IFG3:
+        pir_activated = true;
+        P1IFG &= ~PIR_LEFT;
         break;
     }
 }
