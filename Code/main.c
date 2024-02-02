@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include "hal_LCD.h"
 #include "servo.h"
+#include "fancontroller.h"
 
 #define MODE_BUTTON_PIN BIT5 //P1.5
 #define THERMISTOR_PIN BIT1 //P8.1
@@ -32,7 +33,7 @@ float rt = 0;
 
 // Mode variables
 #define BUTTON_DEBOUNCE() (__delay_cycles(90000))
-Fanmode_t current_mode = STATIC;
+Fanmode_t current_mode = SWEEP;
 bool has_toggled_mode = false;
 
 // Servo variables
@@ -63,7 +64,7 @@ void init_GPIO()
 
     // Setup button to toggle fan mode
     P1DIR |= MODE_BUTTON_PIN;
-    P1IN |= MODE_BUTTON_PIN;
+    //P1IN |= MODE_BUTTON_PIN;
     P1REN |= MODE_BUTTON_PIN;
     P1OUT |= MODE_BUTTON_PIN;
     P1IE |= MODE_BUTTON_PIN;
@@ -72,7 +73,7 @@ void init_GPIO()
 
     // Setup the PIR pins
     P1DIR &= ~PIR_LEFT;
-    P1IN |= PIR_LEFT;
+    //P1IN |= PIR_LEFT;
     P1REN |= PIR_LEFT;
     P1OUT |= PIR_LEFT;
     P1IE |= PIR_LEFT;
@@ -107,16 +108,17 @@ void measure_temperature()
 int main(void)
 {
     // General Setup
-	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
-	PMM_unlockLPM5();
+    WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
+    PMM_unlockLPM5();
 
-	// Setup Peripherals
-	init_adc();
-	Init_LCD();
-	init_GPIO();
-	servo_init();
-	servo_to_angle(90);
-	displayFanMode(current_mode);
+    // Setup Peripherals
+    init_adc();
+    Init_LCD();
+    init_GPIO();
+    fan_init();
+    servo_init();
+    servo_to_angle(90);
+    displayFanMode(current_mode);
 
 	// Enable global interrupts
     __enable_interrupt();
@@ -150,7 +152,7 @@ int main(void)
 	    switch(current_mode)
 	    {
 	    case STATIC:
-	        servo_to_angle(90);
+	        servo_cycle_gradual(current_angle, 90);
 	        current_angle = 90;
 	        break;
 
@@ -166,6 +168,8 @@ int main(void)
 	        break;
 
 	    case SWEEP:
+                // Save the last angle
+                int last_angle = current_angle;
 
 	        // Increment/ Decrement servo angle based on current angle
 	        if(going_cw)
@@ -188,15 +192,15 @@ int main(void)
 	        }
 
 	        // Move the servo to the new angle (servo_to_angle handles angle under/overflow)
-	        servo_to_angle(current_angle);
-
-	        break;
+                servo_cycle_gradual(last_angle, current_angle);
+	        
+                break;
 
 	    }
 
 	}
 
-	return 0;
+	//return 0;
 }
 
 
