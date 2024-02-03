@@ -1,3 +1,5 @@
+// A custom library for interfacing the MG946R servo with the MSP430
+
 #ifndef SERVO_H_
 #define SERVO_H_
 
@@ -14,8 +16,8 @@
 
 #define SERVO_PIN BIT7 // Servo connected to P1.7 in example
 #define PWM_PERIOD 640 // ACLK (32kHz, divider 1) must count to 640 to generate a 20ms output signal)
-#define PWM_MIN_DUTY 16 // Theoretically should be 32 - 1ms, 5% duty cycle. Experimentally 16 for servo.
-#define PWM_MAX_DUTY 78 // Theoretically should be 64 - 2ms, 10% duty cycle. Experimentally 86 for servo.
+#define PWM_MIN_DUTY 22 // Theoretically should be 32 - 1ms, 5% duty cycle. 
+#define PWM_MAX_DUTY 76 // Theoretically should be 64 - 2ms, 10% duty cycle.
 #define SERVO_DELAY()(__delay_cycles(10000))// Edit delay cycles arg to alter delay time
 
 /******************************************
