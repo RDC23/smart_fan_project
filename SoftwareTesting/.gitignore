@@ -1,11 +1,11 @@
 /servo_testing/.metadata/
-/servo_testing/.settings
-/servo_testing/.launches
+/servo_testing/.settings/
+/servo_testing/.launches/
 /servo_testing/Debug/
 /servo_testing/targetConfigs/
-/*.cproject
-/*.ccsproject
-/*.project
+/.cproject
+/.ccsproject
+/.project
 /*.cmd
 
 
