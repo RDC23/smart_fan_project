@@ -1,11 +1,12 @@
-/.metadata/
-/.settings
-/Debug/
-/targetConfigs/
-/*.cproject
-/*.ccsproject
-/*.project
-/.cmd
+/../.metadata/
+/../.settings
+/../.launches
+/../Debug/
+/../targetConfigs/
+/../*.cproject
+/../*.ccsproject
+/../*.project
+/../*.cmd
 
 
 
