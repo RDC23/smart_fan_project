@@ -1,0 +1,11 @@
+/.metadata/
+/.settings
+/Debug/
+/targetConfigs/
+/*.cproject
+/*.ccsproject
+/*.project
+/.cmd
+
+
+
