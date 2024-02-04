@@ -1,0 +1,16 @@
+#include <msp430.h> 
+#include "driverlib.h"
+
+
+
+
+#define GREEN_LED_PIN BIT4 //P1.4
+#define PIR_LEFT BIT3 //P1.3
+
+
+int main(void)
+{
+	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
+	
+	return 0;
+}
