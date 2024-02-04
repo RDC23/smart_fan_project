@@ -11,7 +11,8 @@
  ******************************************/
 #define FAN_PIN BIT3 // P8.3
 #define FAN_PWM_PERIOD 639// 20kHz
-#define FAN_PWM_MIN_DUTY 125 // Placeholder! Needs experimental verification
+#define FAN_PWM_MAX_DUTY 639 // Placeholder! Needs experimental verification
+#define FAN_PWM_MIN_DUTY 0 // Placeholder! Needs experimental verification
 
 /******************************************
  * API FUNCTION DECLARATIONS
