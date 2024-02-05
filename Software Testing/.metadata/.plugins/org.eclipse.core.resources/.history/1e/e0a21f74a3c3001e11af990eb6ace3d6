@@ -1,0 +1,41 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+SHELL = cmd.exe
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CMD_SRCS += \
+../lnk_msp430fr4133.cmd 
+
+C_SRCS += \
+../fancontroller.c \
+../servo.c \
+../servo_test.c 
+
+C_DEPS += \
+./fancontroller.d \
+./servo.d \
+./servo_test.d 
+
+OBJS += \
+./fancontroller.obj \
+./servo.obj \
+./servo_test.obj 
+
+OBJS__QUOTED += \
+"fancontroller.obj" \
+"servo.obj" \
+"servo_test.obj" 
+
+C_DEPS__QUOTED += \
+"fancontroller.d" \
+"servo.d" \
+"servo_test.d" 
+
+C_SRCS__QUOTED += \
+"../fancontroller.c" \
+"../servo.c" \
+"../servo_test.c" 
+
+

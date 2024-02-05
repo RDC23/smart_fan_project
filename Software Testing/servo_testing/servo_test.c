@@ -116,7 +116,7 @@ int main(void)
         }
         else
         {
-            TA1CCR2 = adc_angle;
+            TA0CCR2 = adc_angle;
         }
     }
 }

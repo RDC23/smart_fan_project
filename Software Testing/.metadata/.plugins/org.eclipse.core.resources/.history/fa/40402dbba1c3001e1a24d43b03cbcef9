@@ -109,10 +109,10 @@ int main(void)
 
 	    if(left_pir_activated)
 	    {
-	        P1OUT |= LEFT_PIR_LED;
 	        servo_cycle_gradual(cur_ang, 180);
 	        cur_ang = 180;
 	        left_pir_activated = false;
+	        P1OUT |= LEFT_PIR_LED;
 	        __delay_cycles(1000000);
 	    }
 
