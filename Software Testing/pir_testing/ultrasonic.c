@@ -74,7 +74,7 @@ __interrupt void TIMERA0_ISR1(void)
          }
          else
          {
-             validated_dist - MAX_RANGE;
+             validated_dist = MAX_RANGE;
          }
        }
        break;
