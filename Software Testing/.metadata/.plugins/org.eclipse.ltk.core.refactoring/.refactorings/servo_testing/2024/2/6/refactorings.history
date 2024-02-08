@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;servo_testing/decoder&apos; to &apos;decoder.h&apos;" description="Rename resource &apos;decoder&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="decoder" name="decoder.h" stamp="1707420335966" updateReferences="true"/>
+</session>
