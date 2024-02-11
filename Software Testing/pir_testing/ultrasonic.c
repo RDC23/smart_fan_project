@@ -20,16 +20,15 @@ void ultrasonic_fire_pulse()
 
 void ultrasonic_setup_pins()
 {
-    // P1.6 trigger pulse. GPIO output
-    P1DIR |= TRIG_PIN;
-    P1OUT &= ~TRIG_PIN;
+    // P8.2 trigger pulse. GPIO output
+    P8DIR |= TRIG_PIN;
+    P8OUT &= ~TRIG_PIN;
 
     // P8.3 echo pulse and timer input. Secondary function, TA1 CCI2A input
     P8DIR &= ~ECHO_PIN;
     P8SEL0 |= ECHO_PIN;
     TA1CTL |= TASSEL_2 | MC_2 | TACLR; // SMCLK input source for 1MHz, continuous mode
     TA1CCTL2 |= CM_3 | SCS | CAP | CCIS_0 | CCIE; // Capture on both edges, sync capture, capture mode, input select CCIxA, enable interrupts
-
 }
 
 unsigned long ultrasonic_get_distance()
@@ -53,7 +52,7 @@ __interrupt void TIMERA1_ISR1(void)
     case 10: // Timer overflow
         break;
     default:
-       // Read the CCI bit (ECHO signal) in CCTL0
+       // Read the CCI bit (ECHO signal) in CCTL1
        // If ECHO is HIGH then start counting (rising edge)
        if (TA1CCTL2 & CCI)
        {
@@ -64,7 +63,7 @@ __interrupt void TIMERA1_ISR1(void)
        {
          end_time = TA1CCR2;
          delta_time = end_time - start_time;
-         distance = (unsigned long)(delta_time / (0.00583090379 * 10000));
+         distance = (unsigned long)(delta_time / 58.3090379); // 58.3 = speed of sound cm/s, halved for echo time bounce
 
          //only accept values within HC-SR04 valid range
          if (distance  >= 0.0 && distance <= MAX_RANGE)

@@ -1,5 +1,8 @@
 // This code tests the system integration of the thermistor circuit to control fan speed.
+// Power output LEDs (pins 5.0, 5.2, and 5.3) indicate low, medium, and high power output modes.
 
+
+// Includes
 #include <msp430.h> 
 #include <stdio.h>
 #include <math.h>
@@ -8,9 +11,13 @@
 #include "hal_LCD.h"
 #include "fancontroller.h"
 
+// Defines
 #define THERMISTOR_PIN BIT1 //P8.1
 #define BUTTON_TOGGLE BIT2 // P1.2
 #define ON_OFF_BUTTON  BIT6 // P2.6
+#define LOW_POWER_LED BIT0 // P5.0
+#define MED_POWER_LED BIT2 // P5.2
+#define HIGH_POWER_LED BIT3 // P5.3
 
 // Globals
 bool show_temp = true;
@@ -41,6 +48,33 @@ void init_GPIO()
     P2IE |= ON_OFF_BUTTON;
     P2IES |= ON_OFF_BUTTON;
     P2IFG &= ~ON_OFF_BUTTON;
+
+    // Setup the power-use LEDs
+    P5DIR |= (LOW_POWER_LED | MED_POWER_LED | HIGH_POWER_LED);
+    P5OUT &= ~(LOW_POWER_LED | MED_POWER_LED | HIGH_POWER_LED);
+}
+
+// Map a temperature to a power use LED
+void speed_to_power_LED()
+{
+    #define LOW_SPEED_BOUNDARY 33
+    #define HIGH_SPEED_BOUNDARY 55
+
+    if (fan_speed < LOW_SPEED_BOUNDARY)
+    {
+        P5OUT |= LOW_POWER_LED;
+        P5OUT &= ~(MED_POWER_LED | HIGH_POWER_LED);
+    }
+    else if (fan_speed >= LOW_SPEED_BOUNDARY && fan_speed < HIGH_SPEED_BOUNDARY)
+    {
+        P5OUT |= MED_POWER_LED;
+        P5OUT &= ~(HIGH_POWER_LED | LOW_POWER_LED);
+    }
+    else
+    {
+        P5OUT |= HIGH_POWER_LED;
+        P5OUT &= ~(MED_POWER_LED | LOW_POWER_LED);
+    }
 }
 
 // Configure the ADC using registers
@@ -71,6 +105,7 @@ int main(void)
     init_GPIO();
     init_adc();
     Init_LCD();
+    clearLCD();
     fan_init();
     fan_torque_boost();
 
@@ -82,16 +117,21 @@ int main(void)
         // Take temperature reading
         measure_temperature();
 
-        // Update fan PWM
+        // Update fan speed base on temperature reading
         if (fan_on)
         {
+            __delay_cycles(20000);
             fan_temp_to_speed(temperature);
         }
 
         else
         {
+            __delay_cycles(20000);
             fan_stop();
         }
+
+        // Illuminate power LED
+        speed_to_power_LED();
 
         // Display temperature or fan speed on LCD
         if (show_temp)
@@ -109,11 +149,7 @@ int main(void)
             sprintf(fan_speed_str, "%d PER", fan_speed);
             displayShortMessage(fan_speed_str);
         }
-
-
-
     }
-
 }
 
 /*---------------------------------------------------------------------------*/
@@ -124,11 +160,11 @@ int main(void)
 #pragma vector = ADC_VECTOR
 __interrupt void ADC_ISR(void)
 {
-    #define beta 3950
+    #define beta 3680// 3950 for other 10k thermistor
     #define kelvin 273.15
     #define adc_resolution 1023
     #define avcc 3.3 // Supply reference voltage
-    #define r_divider 10 // kOhms
+    #define r_divider 120// 10 for other 10k thermistor
 
     switch (__even_in_range(ADCIV, ADCIV_ADCIFG))
     {
