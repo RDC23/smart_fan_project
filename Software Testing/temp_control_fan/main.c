@@ -20,8 +20,9 @@
 #define HIGH_POWER_LED BIT3 // P5.3
 
 // Globals
-bool show_temp = true;
-bool fan_on = true;
+volatile bool show_temp = true;
+volatile bool fan_on = true;
+volatile bool needs_torque_boost = false;
 
 
 // ADC variables
@@ -117,10 +118,18 @@ int main(void)
         // Take temperature reading
         measure_temperature();
 
-        // Update fan speed base on temperature reading
+        // Update fan speed based on temperature reading
         if (fan_on)
         {
             __delay_cycles(20000);
+
+            // Check if fan needs a temporary torque boost i.e. starting from stopped position
+            if (needs_torque_boost)
+            {
+                fan_torque_boost();
+                needs_torque_boost = false;
+            }
+
             fan_temp_to_speed(temperature);
         }
 
@@ -128,6 +137,7 @@ int main(void)
         {
             __delay_cycles(20000);
             fan_stop();
+            needs_torque_boost = true;
         }
 
         // Illuminate power LED

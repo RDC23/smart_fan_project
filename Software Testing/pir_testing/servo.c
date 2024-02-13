@@ -1,10 +1,9 @@
-/*
- * servo.c
- *
- *  Created on: 17 Dec 2023
- *      Author: rdcsc
- */
 #include "servo.h"
+
+/******************************************
+ *       GLOBALS                          *
+ ******************************************/
+extern int cur_servo_ang = 90;
 
 /******************************************
  *       API FUNCTION DEFINITIONS         *
@@ -34,14 +33,21 @@ void servo_to_angle(double angle)
     {
         angle = 0;
     }
+
     // Map the input angle to PWM required
     TA0CCR1 = (int)(((angle * (PWM_MAX_DUTY - PWM_MIN_DUTY)) / 180) + PWM_MIN_DUTY);
+
+    // Save new angle in 'cur_servo_ang' global variable
+    cur_servo_ang = angle;
 }
 
 void servo_reset_pos()
 {
     // Move to 0 degrees position
     TA0CCR1 = PWM_MIN_DUTY;
+
+    // Save new angle in 'cur_servo_ang' global variable
+    cur_servo_ang = 0;
 }
 
 void servo_cycle_gradual(int current_angle, int new_angle) {
@@ -53,6 +59,7 @@ void servo_cycle_gradual(int current_angle, int new_angle) {
         current_angle += increment;
         SERVO_DELAY();
     }
+    // The call to servo_to_angle already updates global 'cur_servo_ang' variable
 }
 
 

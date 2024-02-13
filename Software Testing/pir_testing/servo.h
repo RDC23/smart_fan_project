@@ -19,6 +19,11 @@
 #define SERVO_DELAY()(__delay_cycles(10000))// Edit delay cycles arg to alter delay time
 
 /******************************************
+ * GLOBALS
+ ******************************************/
+extern int cur_servo_ang;
+
+/******************************************
  * API FUNCTION DECLARATIONS      
  ******************************************/
 
