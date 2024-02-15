@@ -52,13 +52,14 @@ int main(void)
 	servo_init();
 	servo_to_angle(90);
 	__enable_interrupt();
+
+// Define servo starting position at 90 degrees
+	    servo_cycle_gradual(cur_servo_ang, 90);
+
 	
 	while(1)
 	{
-	    // Define servo starting position at 90 degrees
-	    servo_cycle_gradual(cur_servo_ang, 90);
-
-	    // TO DO: ADD IN ULTRASONIC LOGIC!
+     // TO DO: ADD IN ULTRASONIC LOGIC!
 
 	    // Check each interrupt flag
 	    if(left_pir_activated)
