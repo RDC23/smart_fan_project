@@ -9,11 +9,11 @@ void ultrasonic_fire_pulse()
     // Clear the timer for the ECHO pin
     TA1CTL |= TACLR;
     // Send out a short 10us (logic high) trigger pulse
-    P1OUT &= ~TRIG_PIN;
+    P8OUT &= ~TRIG_PIN;
     __delay_cycles(2);
-    P1OUT |= TRIG_PIN;
+    P8OUT |= TRIG_PIN;
     __delay_cycles(10);
-    P1OUT &= ~TRIG_PIN;
+    P8OUT &= ~TRIG_PIN;
     // Wait for 60 ms before allowing function to be called again.
     __delay_cycles(60000);
 }
