@@ -1,4 +1,5 @@
-"./pir_test.obj"
+"./hal_LCD.obj"
+"./main.obj"
 "./servo.obj"
 "./ultrasonic.obj"
 "./driverlib/MSP430FR2xx_4xx/adc.obj"

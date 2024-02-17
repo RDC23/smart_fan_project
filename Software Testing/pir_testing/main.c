@@ -3,9 +3,11 @@
 
 #include <msp430.h> 
 #include <stdbool.h>
+#include <stdio.h>
 #include "driverlib.h"
 #include "servo.h"
 #include "ultrasonic.h"
+#include "hal_LCD.h"
 
 // Pin defines
 #define PIR_LEFT BIT3 // P1.5
@@ -13,21 +15,19 @@
 #define PIR_RIGHT BIT3 // P1.3
 
 // PIR sensors
-volatile bool left_pir_activated = false;
-volatile bool mid_pir_activated = false;
-volatile bool right_pir_activated = false;
+typedef enum {
+    LEFT = 180,
+    MID = 90,
+    RIGHT = 0
+} PIR_direction;
+
+volatile PIR_direction activated_direction = MID;
 
 // Ultrasonic
 volatile int last_measured_distance = 0;
-
-// PIR and Ultrasonic Event Flag
-volatile bool detection_event = false;
-
-// Mapping function
-long map(long x, long in_min, long in_max, long out_min, long out_max)
-{
-    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-}
+#define NUM_SAMPLES 5
+volatile int distance_samples[NUM_SAMPLES];
+volatile int sample_index = 0;
 
 void pir_init()
 {
@@ -40,6 +40,18 @@ void pir_init()
     P1IFG &= ~(PIR_LEFT | PIR_MID | PIR_RIGHT);
 }
 
+bool movement_event(int cdist)
+{
+    if ((activated_direction != cur_servo_ang) && (abs(cdist - last_measured_distance) > SIG_DELTA_DISTANCE))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 int main(void)
 {
 
@@ -47,42 +59,46 @@ int main(void)
 	PMM_unlockLPM5();
 
 	// Initialise peripherals
+	Init_LCD();
 	pir_init();
 	ultrasonic_setup_pins();
 	servo_init();
 	servo_to_angle(90);
 	__enable_interrupt();
 
-// Define servo starting position at 90 degrees
-	    servo_cycle_gradual(cur_servo_ang, 90);
-
 	
 	while(1)
 	{
-     // TO DO: ADD IN ULTRASONIC LOGIC!
+	    ultrasonic_fire_pulse();
+	    int current_distance = ultrasonic_get_distance();
 
-	    // Check each interrupt flag
-	    if(left_pir_activated)
+	    // If a 'movement event' is detected, turn the servo to face the PIR
+	    if(movement_event(current_distance))
 	    {
-	        servo_cycle_gradual(cur_servo_ang, 180);
-	        left_pir_activated = false;
-	        __delay_cycles(100000);
+	        // DEBUG LCD USE
+	        clearLCD();
+            char temp_str[6];
+            if (activated_direction == MID)
+            {
+                sprintf(temp_str, "MID", current_distance);
+                displayShortMessage(temp_str);
+            }
+            if (activated_direction == LEFT)
+            {
+                sprintf(temp_str, "LEFT", current_distance);
+                displayShortMessage(temp_str);
+            }
+            if (activated_direction == RIGHT)
+            {
+                sprintf(temp_str, "RIGHT", current_distance);
+                displayShortMessage(temp_str);
+            }
+
+	        servo_cycle_gradual(cur_servo_ang, activated_direction);
+	        // Update the last distance with the target position in the new servo frame
+	        ultrasonic_fire_pulse();
+	        last_measured_distance = ultrasonic_get_distance();
 	    }
-
-	    if(mid_pir_activated)
-	    {
-	        servo_cycle_gradual(cur_servo_ang, 90);
-            mid_pir_activated = false;
-            __delay_cycles(100000);
-	    }
-
-	    if(right_pir_activated)
-        {
-	        servo_cycle_gradual(cur_servo_ang, 0);
-            right_pir_activated = false;
-            __delay_cycles(100000);
-        }
-
 	}
 	return 0;
 }
@@ -99,17 +115,17 @@ __interrupt void P1_ISR(void)
     {
     // Left PIR sensor
     case P1IV_P1IFG5:
-        left_pir_activated = true;
+        activated_direction = LEFT;
         P1IFG &= ~PIR_LEFT;
         break;
     // Middle PIR sensor
     case P1IV_P1IFG4:
-        mid_pir_activated = true;
+        activated_direction = MID;
         P1IFG &= ~PIR_MID;
         break;
     // Right PIR sensor
     case P1IV_P1IFG3:
-        right_pir_activated = true;
+        activated_direction = RIGHT;
         P1IFG &= ~PIR_RIGHT;
         break;
     }
