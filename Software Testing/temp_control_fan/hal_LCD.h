@@ -71,6 +71,7 @@ void displayScrollText(char*);
 void showChar(char, int);
 void clearLCD(void);
 void displayShortMessage(char* msg);
+void powerPrint(double powerval);
 void displayFanMode(int mode);
 
 
