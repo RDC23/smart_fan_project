@@ -69,4 +69,9 @@ void fan_temp_to_speed(double temp);
  */
 void fan_stop();
 
+/*
+/ fan_calculate_power - Uses the current PWM value to determine fan power consumption (between 0 and 3 watts)
+*/
+double fan_calculate_power();
+
 #endif
