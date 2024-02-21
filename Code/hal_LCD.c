@@ -247,3 +247,17 @@ void displayFanMode(int mode)
         break;
     }
 }
+
+// Display the fan power consumption to the screen
+void powerPrint(double powerval)
+{
+    // Clear the LCD before displaying the message
+    clearLCD();
+
+    // Cast the double to a string buffer
+    char buffer[6];
+    sprintf(buffer, "%.2fW", powerval);
+
+    // Use display short message function
+    displayShortMessage(buffer);
+}

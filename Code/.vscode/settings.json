@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "thermistor.h": "c",
+        "hal_lcd.h": "c",
+        "servo.h": "c",
+        "fancontroller.h": "c",
+        "driverlib.h": "c",
+        "ultrasonic.h": "c",
+        "pir.h": "c",
+        "stdbool.h": "c",
+        "msp430.h": "c",
+        "msp430fr4133.h": "c"
+    }
+}

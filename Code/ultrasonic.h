@@ -5,10 +5,11 @@
  * DEFINES                 
  *****************************************/
 
-#define TRIG_PIN BIT6 //P1.6
-#define ECHO_PIN BIT3 //P8.3
+#define TRIG_PIN BIT2 // P8.2
+#define ECHO_PIN BIT3 // P8.3
 #define CM_CONVERTION 0.00583090379 // From us to cm
 #define MAX_RANGE 400.0 // Max range of HC-SR04 ultrasonic sensor is 400 cm
+#define SIG_DELTA_DISTANCE 5 // Defines the change in measured distance required to raise event flag
 
 /*****************************************
  * API FUNCTION DECLARATIONS       
@@ -40,5 +41,5 @@ void ultrasonic_setup_pins();
  */
 unsigned long ultrasonic_get_distance();
 
-#endif  ULTRASONIC_H_
+#endif
 

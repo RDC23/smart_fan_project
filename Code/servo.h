@@ -1,5 +1,3 @@
-// A custom library for interfacing the MG946R servo with the MSP430
-
 #ifndef SERVO_H_
 #define SERVO_H_
 
@@ -14,11 +12,19 @@
  * DEFINES                  
  ******************************************/
 
-#define SERVO_PIN BIT7 // Servo connected to P1.7 in example
+#define SERVO_PIN BIT7 // Servo connected to P1.7
 #define PWM_PERIOD 640 // ACLK (32kHz, divider 1) must count to 640 to generate a 20ms output signal)
-#define PWM_MIN_DUTY 22 // Theoretically should be 32 - 1ms, 5% duty cycle. 
-#define PWM_MAX_DUTY 76 // Theoretically should be 64 - 2ms, 10% duty cycle.
+#define PWM_MIN_DUTY 16 // Theoretically should be 32 - 1ms, 5% duty cycle. Experimentally 16 for servo.
+#define PWM_MAX_DUTY 78 // Theoretically should be 64 - 2ms, 10% duty cycle. Experimentally 86 for servo.
 #define SERVO_DELAY()(__delay_cycles(10000))// Edit delay cycles arg to alter delay time
+
+/******************************************
+ * GLOBALS
+ ******************************************/
+
+// Make the current servo angle and direction accessible to main code
+extern int cur_servo_ang;
+extern bool going_cw;
 
 /******************************************
  * API FUNCTION DECLARATIONS      
@@ -57,11 +63,9 @@ void servo_reset_pos();
  * Incrementally changes the servo position from the current angle
  * to the specified new angle. This function smoothly transitions the servo position.
  *
- * @param current_angle - Integer representing the current angle of the servo (0-180)
  * @param new_angle - Integer representing the desired new angle of the servo (0-180)
- *                   The function cycles gradually from the current angle to this new angle.
+ *                    The function cycles gradually from the current angle to this new angle.
  */
-void servo_cycle_gradual(int current_angle, int new_angle);
-
+void servo_cycle_gradual(int new_angle);
 
 #endif /* SERVO_H_ */

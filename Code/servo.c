@@ -1,10 +1,11 @@
-/*
- * servo.c
- *
- *  Created on: 17 Dec 2023
- *      Author: rdcsc
- */
 #include "servo.h"
+#include <msp430fr4133.h>
+
+/******************************************
+ *       GLOBALS                          *
+ ******************************************/
+extern int cur_servo_ang = 90;
+extern bool going_cw = true;
 
 /******************************************
  *       API FUNCTION DEFINITIONS         *
@@ -19,8 +20,8 @@ void servo_init()
     // Setup the timer for PWM (uses CCR1 and CCR0)
     TA0CTL |= TASSEL_1 | MC_1 | ID_0 | TACLR; // ACLK, up to CCR0, divider = 1
     TA0CCTL1 |= OUTMOD_7; // PWM reset/set
-    TA0CCR0 |= PWM_PERIOD;
-    TA0CCR1 |= PWM_MIN_DUTY;
+    TA0CCR0 = PWM_PERIOD;
+    TA0CCR1 = PWM_MIN_DUTY;
 }
 
 void servo_to_angle(double angle)
@@ -34,25 +35,35 @@ void servo_to_angle(double angle)
     {
         angle = 0;
     }
+
     // Map the input angle to PWM required
     TA0CCR1 = (int)(((angle * (PWM_MAX_DUTY - PWM_MIN_DUTY)) / 180) + PWM_MIN_DUTY);
+
+    // Save new angle in 'cur_servo_ang' global variable
+    cur_servo_ang = angle;
 }
 
 void servo_reset_pos()
 {
     // Move to 0 degrees position
     TA0CCR1 = PWM_MIN_DUTY;
+
+    // Save new angle in 'cur_servo_ang' global variable
+    cur_servo_ang = 0;
 }
 
-void servo_cycle_gradual(int current_angle, int new_angle)
-{
+void servo_cycle_gradual(int new_angle) {
     // Determine the direction of movement
-    int increment = (current_angle < new_angle) ? 1 : -1;
+    int increment = (cur_servo_ang < new_angle) ? 1 : -1;
+    int inter_angle = cur_servo_ang;
 
-    while (current_angle != new_angle)
-    {
-        servo_to_angle(current_angle);
-        current_angle += increment;
+    while (inter_angle != new_angle) {
+        inter_angle += increment;
+        servo_to_angle(inter_angle);
         SERVO_DELAY();
     }
+    // The call to servo_to_angle already updates global 'cur_servo_ang' variable
 }
+
+
+
