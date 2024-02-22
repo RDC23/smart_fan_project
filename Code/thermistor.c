@@ -1,6 +1,4 @@
 #include "thermistor.h"
-#include <msp430fr4133.h>
-#include <driverlib.h>
 
 // ADC variables
 static float ADCValue_ = 0;

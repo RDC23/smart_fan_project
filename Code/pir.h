@@ -22,12 +22,6 @@ typedef enum {
 } PIR_direction;
 
 /******************************************
- * GLOBALS 
- ******************************************/
-
-extern volatile PIR_direction activated_direction;
-
-/******************************************
  * API FUNCTION DECLARATIONS      
  ******************************************/
 

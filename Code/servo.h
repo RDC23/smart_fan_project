@@ -5,8 +5,8 @@
  * INCLUDES                 
  ******************************************/
 
-#include <msp430.h>
 #include <driverlib.h> // For __delay_cycles()
+#include <msp430fr4133.h>
 
 /******************************************
  * DEFINES                  
@@ -16,6 +16,8 @@
 #define PWM_PERIOD 640 // ACLK (32kHz, divider 1) must count to 640 to generate a 20ms output signal)
 #define PWM_MIN_DUTY 16 // Theoretically should be 32 - 1ms, 5% duty cycle. Experimentally 16 for servo.
 #define PWM_MAX_DUTY 78 // Theoretically should be 64 - 2ms, 10% duty cycle. Experimentally 86 for servo.
+#define SERVO_MIN_ANGLE 0 // degrees
+#define SERVO_MAX_ANGLE 180 // degrees
 #define SERVO_DELAY()(__delay_cycles(10000))// Edit delay cycles arg to alter delay time
 
 /******************************************

@@ -1,5 +1,3 @@
-// A custom library for interfacing a thermistor with the MSP430
-
 #ifndef THERMISTOR_H_
 #define THERMISTOR_H_
 
@@ -7,7 +5,8 @@
  * INCLUDES                 
  ******************************************/
 
-#include <msp430.h>
+#include <msp430fr4133.h>
+#include <driverlib.h>
 
 /******************************************
  * DEFINES                  

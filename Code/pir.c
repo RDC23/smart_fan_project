@@ -1,7 +1,5 @@
 #include "pir.h"
 
-extern volatile PIR_direction activated_direction = MID;
-
 void pir_init()
 {
     // Setup the PIR pins

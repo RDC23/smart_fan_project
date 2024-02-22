@@ -16,6 +16,7 @@
 #define MODE_BUTTON_PIN BIT1// P1.2 (On launchpad)
 #define ON_OFF_BUTTON  BIT6 // P2.6 (On launchpad)
 #define BUTTON_DEBOUNCE() (__delay_cycles(90000))
+#define ANGLE_INCREMENT_SWEEP 5 // The number of degrees the servo should 'sweep' per iteration of main loop
 
 // TYPEDEFS
 typedef enum {
@@ -50,6 +51,22 @@ void init_GPIO()
     P2IE |= ON_OFF_BUTTON;
     P2IES |= ON_OFF_BUTTON;
     P2IFG &= ~ON_OFF_BUTTON;
+
+    // Setup the fan efficiency LEDs
+    P5DIR |= (LOW_POWER_LED | MED_POWER_LED | HIGH_POWER_LED);
+    P5OUT &= ~(LOW_POWER_LED | MED_POWER_LED | HIGH_POWER_LED);
+}
+
+bool movement_event(int cdist)
+{
+    if ((activated_direction != cur_servo_ang) && (abs(cdist - last_measured_distance) > SIG_DELTA_DISTANCE))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void cycle_fan_mode()
@@ -72,7 +89,7 @@ void cycle_fan_mode()
 int main(void)
 {
     // General Setup
-    WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
+    WDTCTL = WDTPW | WDTHOLD;
     PMM_unlockLPM5();
 
     // Setup Peripherals
@@ -82,7 +99,7 @@ int main(void)
     init_GPIO();
     fan_init();
     servo_init();
-    servo_to_angle(90);
+    servo_to_angle(MID);
     Init_LCD();
     displayFanMode(current_mode);
 
@@ -105,42 +122,60 @@ int main(void)
 		fan_temp_to_speed(current_temperature);
 		fan_speed_to_power_LED();	    
 
-	    // 3) Handle mode defined servo actions
+        // 3) Update the fan power display
+        double fan_power = fan_calculate_power();
+
+        // **** RUIHANG FUNCTION TO DISPLAY POWER ****
+
+
+	    // 4) Handle mode defined servo actions
 	    switch(current_mode)
 	    {
 	    case STATIC:
+
 			// Face the front and then do not move
-	        servo_cycle_gradual(90);
+	        servo_cycle_gradual(MID);
 	        break;
 
 	    case TRACK:
-	        // Implement PIR and ultrasonic logic here
-	       
 
-	        break;
+	        // Fire ultrasonic pulse to provide current distance measurement
+            ultrasonic_fire_pulse();
+            int current_dist = ultrasonic_get_distance();
+
+            // If a 'movement event' is detected, turn the servo to face the PIR
+            if(movement_event(current_dist))
+            {
+                servo_cycle_gradual(activated_direction);
+                // Update the last distance with the target position in the new servo frame
+                ultrasonic_fire_pulse();
+                last_measured_distance = ultrasonic_get_distance();
+            }	   
+            break;
 
 	    case SWEEP:
+
 			// Increment/ Decrement servo angle based on current angle
 			int to_angle = cur_servo_ang;
 
 	        if(going_cw)
 	        {
-	            to_angle += 5;
+	            to_angle += ANGLE_INCREMENT_SWEEP;
 	        }
 	        else
 	        {
-	            to_angle -= 5;
+	            to_angle -= ANGLE_INCREMENT_SWEEP;
 	        }
 
 	        // Handle direction change at bounds
-	        if (to_angle >= 180)
+	        if (to_angle >= SERVO_MAX_ANGLE)
 	        {
-				to_angle = 180;
+				to_angle = SERVO_MAX_ANGLE;
 	            going_cw = false;
 	        }
-	        else if (to_angle <= 0)
+	        else if (to_angle <= SERVO_MIN_ANGLE)
 	        {
-				to_angle = 0;
+				to_angle = SERVO_MIN_ANGLE;
 	            going_cw = true;
 	        }
 

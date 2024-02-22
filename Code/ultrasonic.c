@@ -1,5 +1,3 @@
-#include <driverlib.h> // For __delay_cycles
-#include <msp430fr4133.h>
 #include "ultrasonic.h"
 
 // Static used to limit global scope of variables to this compilation unit.

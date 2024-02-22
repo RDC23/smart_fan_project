@@ -1,5 +1,4 @@
 #include "servo.h"
-#include <msp430fr4133.h>
 
 /******************************************
  *       GLOBALS                          *
