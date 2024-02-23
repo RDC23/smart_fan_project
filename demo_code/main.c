@@ -119,7 +119,7 @@ int main(void)
 	    {
 	        BUTTON_DEBOUNCE();
 
-	        // 2) Check if fan needs torque boost
+	        // 2) Check if fan needs torque boost (starting from stopped)
 	        if (needs_torque_boost)
 	        {
 	            fan_torque_boost();
