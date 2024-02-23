@@ -3,8 +3,8 @@
 /******************************************
  *       GLOBALS                          *
  ******************************************/
-extern int cur_servo_ang = 90;
-extern bool going_cw = true;
+int cur_servo_ang = 90;
+bool going_cw = true;
 
 /******************************************
  *       API FUNCTION DEFINITIONS         *

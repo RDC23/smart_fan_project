@@ -42,6 +42,7 @@
 
 #include "hal_LCD.h"
 #include "string.h"
+#include <stdio.h>
 
 // LCD memory map for numeric digits
 const char digit[10][2] =
@@ -245,6 +246,8 @@ void displayFanMode(int mode)
     case 2:
         displayShortMessage("STATIC");
         break;
+    case 3:
+        displayShortMessage("OFF");
     }
 }
 

@@ -1,4 +1,5 @@
 #include "thermistor.h"
+#include <math.h>
 
 // ADC variables
 static float ADCValue_ = 0;
@@ -48,4 +49,5 @@ __interrupt void ADC_ISR(void)
         ADC_clearInterrupt(ADC_BASE, ADC_COMPLETED_INTERRUPT_FLAG);
         break;
     }
+
 }
