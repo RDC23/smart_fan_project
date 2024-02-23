@@ -33,7 +33,7 @@ __interrupt void ADC_ISR(void)
     #define kelvin 273.15
     #define adc_resolution 1023
     #define avcc 3.3 // Supply reference voltage
-    #define r_divider 10 // kOhms
+    #define r_divider 4.7 // kOhms
 
     switch (__even_in_range(ADCIV, ADCIV_ADCIFG))
     {
