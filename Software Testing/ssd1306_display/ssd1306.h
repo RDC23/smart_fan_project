@@ -5,7 +5,7 @@
 #ifndef SSD1306_H_
 #define SSD1306_H_
 
-#include <msp430.h>
+#include <msp430fr4133.h>
 #include <stdint.h>
 #include <string.h>
 #include "i2c.h"

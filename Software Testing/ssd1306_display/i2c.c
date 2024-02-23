@@ -1,25 +1,19 @@
-/*
- * i2c.c
- */
-
 #include "i2c.h"
-
-#include <msp430.h>
+#include <msp430fr4133.h>
 #include <stdint.h>
 
-#define SDA BIT7                                                        // i2c sda pin
-#define SCL BIT6                                                        // i2c scl pin
+#define SDA BIT2                                                        // i2c sda P5.2
+#define SCL BIT3                                                        // i2c scl P5.3
 
 void i2c_init(void) {
-    P1SEL    |= SCL + SDA;                                              // Assign I2C pins to USCI_B0
-    P1SEL2   |= SCL + SDA;                                              // Assign I2C pins to USCI_B0
+    P5SEL0   |= SCL + SDA;                                              // Assign I2C pins to USCI_B0
     UCB0CTL1 |= UCSWRST;                                                // Enable SW reset
     UCB0CTL0  = UCMST + UCMODE_3 + UCSYNC;                              // I2C Master, synchronous mode
     UCB0CTL1  = UCSSEL_2 + UCSWRST;                                     // Use SMCLK, keep SW reset
-    UCB0BR0   = 10;                                                     // fSCL = SMCLK/10 = ~100kHz with SMCLK = 1MHz
+    UCB0BR0   = 10;                                                     // fSCL = SMCLK/10 = ~100kHz with SMCLK 1MHz
     UCB0BR1   = 0;
     UCB0CTL1 &= ~UCSWRST;                                               // Clear SW reset, resume operation
-    IE2      |= UCB0TXIE;                                               // Enable TX interrupt
+    UCB0IE |= UCTXIE;                                                  // Enable TX interrupt
 
 } // end i2c_init
 
@@ -48,7 +42,7 @@ __interrupt void USCIAB0TX_ISR(void) {
         TxByteCtr--;                                                    // Decrement TX byte counter
     } else {
         UCB0CTL1 |= UCTXSTP;                                            // I2C stop condition
-        IFG2 &= ~UCB0TXIFG;                                             // Clear USCI_B0 TX int flag
+        UCB0IE &= ~UCTXIE;                                              // Clear USCI_B0 TX int flag
         __bic_SR_register_on_exit(CPUOFF);                              // Exit LPM0
   }
 }

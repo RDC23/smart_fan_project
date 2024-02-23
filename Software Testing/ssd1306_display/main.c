@@ -1,15 +1,4 @@
-/**
- * main.c
- *
- * Example usage of SSD1306 library created for MSP-EXP430G2 TI LaunchPad
- * Complied using TI v18.12.2.LTS
- *
- * SSD1306 library based on Adafuit's wonderful Arduino library with modifications
- *  and less features to fit the small amount of RAM available on the MSP430G2553 *
- *
- */
-
-#include <msp430.h>
+#include <msp430fr4133.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>

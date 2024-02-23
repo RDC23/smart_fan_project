@@ -3,7 +3,7 @@
  */
 
 #include "ssd1306.h"
-#include <msp430.h>
+#include <msp430fr4133.h>
 #include <stdint.h>
 #include "font_5x7.h"
 #include "i2c.h"

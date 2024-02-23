@@ -1,14 +1,7 @@
-/*
- * i2c.h
- *
- *  Created on: May 19, 2019
- *      Author: Sam
- */
-
 #ifndef I2C_H_
 #define I2C_H_
 
-#include <msp430.h>
+#include <msp430fr4133.h>
 
 unsigned char *PTxData;                                                       // Pointer to TX data
 unsigned char TxByteCtr;                                                      // number of bytes to TX
