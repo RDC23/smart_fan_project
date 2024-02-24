@@ -1,6 +1,6 @@
 #include "fancontroller.h"
 
-extern int fan_speed = 100;
+int fan_speed = 100;
 
 void fan_init()
 {
@@ -65,5 +65,7 @@ void fan_speed_to_power_LED()
         P5OUT &= ~(MED_POWER_LED | LOW_POWER_LED);
     }
 }
+
+
 
 

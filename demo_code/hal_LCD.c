@@ -46,48 +46,48 @@
 
 // LCD memory map for numeric digits
 const char digit[10][2] =
-{
-    {0xFC, 0x28},  /* "0" LCD segments a+b+c+d+e+f+k+q */
-    {0x60, 0x20},  /* "1" */
-    {0xDB, 0x00},  /* "2" */
-    {0xF3, 0x00},  /* "3" */
-    {0x67, 0x00},  /* "4" */
-    {0xB7, 0x00},  /* "5" */
-    {0xBF, 0x00},  /* "6" */
-    {0xE4, 0x00},  /* "7" */
-    {0xFF, 0x00},  /* "8" */
-    {0xF7, 0x00}   /* "9" */
+    {
+        {0xFC, 0x28}, /* "0" LCD segments a+b+c+d+e+f+k+q */
+        {0x60, 0x20}, /* "1" */
+        {0xDB, 0x00}, /* "2" */
+        {0xF3, 0x00}, /* "3" */
+        {0x67, 0x00}, /* "4" */
+        {0xB7, 0x00}, /* "5" */
+        {0xBF, 0x00}, /* "6" */
+        {0xE4, 0x00}, /* "7" */
+        {0xFF, 0x00}, /* "8" */
+        {0xF7, 0x00}  /* "9" */
 };
 
 // LCD memory map for uppercase letters
 const char alphabetBig[26][2] =
-{
-    {0xEF, 0x00},  /* "A" LCD segments a+b+c+e+f+g+m */
-    {0xF1, 0x50},  /* "B" */
-    {0x9C, 0x00},  /* "C" */
-    {0xF0, 0x50},  /* "D" */
-    {0x9F, 0x00},  /* "E" */
-    {0x8F, 0x00},  /* "F" */
-    {0xBD, 0x00},  /* "G" */
-    {0x6F, 0x00},  /* "H" */
-    {0x90, 0x50},  /* "I" */
-    {0x78, 0x00},  /* "J" */
-    {0x0E, 0x22},  /* "K" */
-    {0x1C, 0x00},  /* "L" */
-    {0x6C, 0xA0},  /* "M" */
-    {0x6C, 0x82},  /* "N" */
-    {0xFC, 0x00},  /* "O" */
-    {0xCF, 0x00},  /* "P" */
-    {0xFC, 0x02},  /* "Q" */
-    {0xCF, 0x02},  /* "R" */
-    {0xB7, 0x00},  /* "S" */
-    {0x80, 0x50},  /* "T" */
-    {0x7C, 0x00},  /* "U" */
-    {0x0C, 0x28},  /* "V" */
-    {0x6C, 0x0A},  /* "W" */
-    {0x00, 0xAA},  /* "X" */
-    {0x00, 0xB0},  /* "Y" */
-    {0x90, 0x28}   /* "Z" */
+    {
+        {0xEF, 0x00}, /* "A" LCD segments a+b+c+e+f+g+m */
+        {0xF1, 0x50}, /* "B" */
+        {0x9C, 0x00}, /* "C" */
+        {0xF0, 0x50}, /* "D" */
+        {0x9F, 0x00}, /* "E" */
+        {0x8F, 0x00}, /* "F" */
+        {0xBD, 0x00}, /* "G" */
+        {0x6F, 0x00}, /* "H" */
+        {0x90, 0x50}, /* "I" */
+        {0x78, 0x00}, /* "J" */
+        {0x0E, 0x22}, /* "K" */
+        {0x1C, 0x00}, /* "L" */
+        {0x6C, 0xA0}, /* "M" */
+        {0x6C, 0x82}, /* "N" */
+        {0xFC, 0x00}, /* "O" */
+        {0xCF, 0x00}, /* "P" */
+        {0xFC, 0x02}, /* "Q" */
+        {0xCF, 0x02}, /* "R" */
+        {0xB7, 0x00}, /* "S" */
+        {0x80, 0x50}, /* "T" */
+        {0x7C, 0x00}, /* "U" */
+        {0x0C, 0x28}, /* "V" */
+        {0x6C, 0x0A}, /* "W" */
+        {0x00, 0xAA}, /* "X" */
+        {0x00, 0xB0}, /* "Y" */
+        {0x90, 0x28}  /* "Z" */
 };
 
 void Init_LCD()
@@ -140,16 +140,16 @@ void displayScrollText(char *msg)
     int i;
     int s = 5;
     char buffer[6] = "      ";
-    for (i=0; i<length+7; i++)
+    for (i = 0; i < length + 7; i++)
     {
         int t;
-        for (t=0; t<6; t++)
+        for (t = 0; t < 6; t++)
             buffer[t] = ' ';
         int j;
-        for (j=0; j<length; j++)
+        for (j = 0; j < length; j++)
         {
-            if (((s+j) >= 0) && ((s+j) < 6))
-                buffer[s+j] = msg[j];
+            if (((s + j) >= 0) && ((s + j) < 6))
+                buffer[s + j] = msg[j];
         }
         s--;
 
@@ -173,22 +173,22 @@ void showChar(char c, int position)
     if (c == ' ')
     {
         // Display space
-        LCDMEMW[position/2] = 0;
+        LCDMEMW[position / 2] = 0;
     }
     else if (c >= '0' && c <= '9')
     {
         // Display digit
-        LCDMEMW[position/2] = digit[c-48][0] | (digit[c-48][1] << 8);
+        LCDMEMW[position / 2] = digit[c - 48][0] | (digit[c - 48][1] << 8);
     }
     else if (c >= 'A' && c <= 'Z')
     {
         // Display alphabet
-        LCDMEMW[position/2] = alphabetBig[c-65][0] | (alphabetBig[c-65][1] << 8);
+        LCDMEMW[position / 2] = alphabetBig[c - 65][0] | (alphabetBig[c - 65][1] << 8);
     }
     else
     {
         // Turn all segments on if character is not a space, digit, or uppercase letter
-        LCDMEMW[position/2] = 0xFFFF;
+        LCDMEMW[position / 2] = 0xFFFF;
     }
 }
 
@@ -197,19 +197,19 @@ void showChar(char c, int position)
  */
 void clearLCD()
 {
-    LCDMEMW[pos1/2] = 0;
-    LCDMEMW[pos2/2] = 0;
-    LCDMEMW[pos3/2] = 0;
-    LCDMEMW[pos4/2] = 0;
-    LCDMEMW[pos5/2] = 0;
-    LCDMEMW[pos6/2] = 0;
+    LCDMEMW[pos1 / 2] = 0;
+    LCDMEMW[pos2 / 2] = 0;
+    LCDMEMW[pos3 / 2] = 0;
+    LCDMEMW[pos4 / 2] = 0;
+    LCDMEMW[pos5 / 2] = 0;
+    LCDMEMW[pos6 / 2] = 0;
     LCDMEM[12] = LCDMEM[13] = 0;
 }
 
 /*
  * Shows a message static on screen up to 6 characters length
  */
-void displayShortMessage(char* msg)
+void displayShortMessage(char *msg)
 {
     // Clear the LCD before displaying the message
     clearLCD();
@@ -219,7 +219,7 @@ void displayShortMessage(char* msg)
 
     int i;
 
-    for (i=0; i<length; i++)
+    for (i = 0; i < length; i++)
     {
         buffer[i] = msg[i];
     }
@@ -235,7 +235,7 @@ void displayShortMessage(char* msg)
 // Show fan mode on screen based off enum -> int mapping
 void displayFanMode(int mode)
 {
-    switch(mode)
+    switch (mode)
     {
     case 0:
         displayShortMessage("SWEEP");
@@ -247,20 +247,17 @@ void displayFanMode(int mode)
         displayShortMessage("STATIC");
         break;
     case 3:
-        displayShortMessage("OFF");
+        displayShortMessage(" OFF");
     }
 }
 
-// Display the fan power consumption to the screen
+// Display the fan power consumption to the screen in milliwatts
 void powerPrint(double powerval)
 {
-    // Clear the LCD before displaying the message
     clearLCD();
-
-    // Cast the double to a string buffer
     char buffer[6];
-    sprintf(buffer, "%.2fW", powerval);
-
-    // Use display short message function
+    // Multiply by 1000 to convert to milliwatts
+    int milliwatts = (int)(powerval * 1000);
+    sprintf(buffer, "%dMW", milliwatts);
     displayShortMessage(buffer);
 }

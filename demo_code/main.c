@@ -13,9 +13,9 @@
 #include "pir.h"
 
 // DEFINES
-#define MODE_BUTTON_PIN BIT2 // P1.2 (On launchpad)
-#define ON_OFF_BUTTON  BIT6 // P2.6 (On launchpad)
-#define BUTTON_DEBOUNCE() (__delay_cycles(90000))
+#define MODE_BUTTON_PIN BIT6 // P2.6 (On launchpad)
+#define ON_OFF_BUTTON  BIT2 // P1.2 (On launchpad)
+#define BUTTON_DEBOUNCE() (__delay_cycles(120000))
 #define ANGLE_INCREMENT_SWEEP 5 // The number of degrees the servo should 'sweep' per iteration of main loop
 
 // TYPEDEFS
@@ -27,38 +27,37 @@ typedef enum {
 } Fanmode_t;
 
 // GLOBALS FLAGS & STATE VARIABLES
-volatile PIR_direction activated_direction = MID;
+volatile PIR_direction_t activated_direction = MID;
 volatile Fanmode_t current_mode = STATIC;
-volatile int last_measured_distance = 0;
-volatile bool fan_on = true;
-volatile bool needs_torque_boost = false;
 volatile bool has_toggled_mode = false;
-volatile int to_angle = 0;
+volatile int last_measured_distance = 0;
 volatile int current_dist = 0;
 volatile float current_temperature = 0;
 volatile double fan_power = 100;
-
+volatile bool fan_on = true;
+volatile bool needs_torque_boost = false;
+volatile int to_angle = 0;
 
 // HELPER FUNCTIONS
 void init_GPIO()
 {
     // Setup button to toggle fan mode
-    P1DIR |= MODE_BUTTON_PIN;
-    P1REN |= MODE_BUTTON_PIN;
-    P1OUT |= MODE_BUTTON_PIN;
-    P1IE |= MODE_BUTTON_PIN;
-    P1IES |= MODE_BUTTON_PIN;
-    P1IFG &= ~MODE_BUTTON_PIN;
+    P2DIR &= ~MODE_BUTTON_PIN;  // Should this not be input &= ~MODE_BUTTON_PIN?
+    P2REN |= MODE_BUTTON_PIN;
+    P2OUT |= MODE_BUTTON_PIN;
+    P2IES |= MODE_BUTTON_PIN;
+    P2IFG &= ~MODE_BUTTON_PIN;
+    P2IE |= MODE_BUTTON_PIN;
 
     // Setup on/ off button to stop/start fan
-    P2DIR |= ON_OFF_BUTTON;
-    P2REN |= ON_OFF_BUTTON;
-    P2OUT |= ON_OFF_BUTTON;
-    P2IE |= ON_OFF_BUTTON;
-    P2IES |= ON_OFF_BUTTON;
-    P2IFG &= ~ON_OFF_BUTTON;
+    P1DIR &= ~ON_OFF_BUTTON;
+    P1REN |= ON_OFF_BUTTON;
+    P1OUT |= ON_OFF_BUTTON;
+    P1IES |= ON_OFF_BUTTON;
+    P1IFG &= ~ON_OFF_BUTTON;
+    P1IE |= ON_OFF_BUTTON;
 
-    // Setup the fan efficiency LEDs
+    // Setup the fan efficiency LEDs outputs
     P5DIR |= (LOW_POWER_LED | MED_POWER_LED | HIGH_POWER_LED);
     P5OUT &= ~(LOW_POWER_LED | MED_POWER_LED | HIGH_POWER_LED);
 }
@@ -145,7 +144,7 @@ int main(void)
             fan_power = fan_calculate_power();
 
             // **** RUIHANG FUNCTION TO DISPLAY POWER ****
-
+            //powerPrint(fan_power);
 
             // 6) Handle mode defined servo actions
             switch(current_mode)
@@ -207,10 +206,11 @@ int main(void)
 	    }
         else
         {
-            // Perform standby actions
+            // Perform standby mode actions
             fan_stop();
             needs_torque_boost = true;
             fan_power = 0;
+            fan_speed_to_power_LED();
             displayFanMode(OFF);
         }
 	}
@@ -242,8 +242,8 @@ __interrupt void P1_ISR(void)
         break;
 	// Mode toggle button
 	case P1IV_P1IFG2:
-		has_toggled_mode = true;
-		P1IFG &= ~MODE_BUTTON_PIN;
+	    fan_on = !fan_on;
+	    P1IFG &= ~ON_OFF_BUTTON;
 		break;
     }
 }
@@ -255,8 +255,8 @@ __interrupt void P2_ISR(void)
     {
     // On-off button toggle
     case P2IV_P2IFG6:
-        fan_on = !fan_on;
-        P2IFG &= ~ON_OFF_BUTTON;
+        has_toggled_mode = true;
+        P2IFG &= ~MODE_BUTTON_PIN;
         break;
     }
 }
