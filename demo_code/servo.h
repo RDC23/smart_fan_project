@@ -18,7 +18,7 @@
 #define PWM_MAX_DUTY 78 // Theoretically should be 64 - 2ms, 10% duty cycle. Experimentally 86 for servo.
 #define SERVO_MIN_ANGLE 0 // degrees
 #define SERVO_MAX_ANGLE 180 // degrees
-#define SERVO_DELAY()(__delay_cycles(10000))// Edit delay cycles arg to alter delay time
+#define SERVO_DELAY()(__delay_cycles(50000))// Edit delay cycles arg to alter delay time
 
 /******************************************
  * GLOBALS
