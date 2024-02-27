@@ -14,8 +14,8 @@ void i2c_init(void) {
     UCB0CTLW0 |= UCSWRST;                                                // Enable SW reset
     UCB0CTLW0 |= UCMST + UCMODE_3 + UCSYNC;                              // I2C Master, synchronous mode
     UCB0CTLW0 |= UCSSEL_2 + UCSWRST;                                     // Use SMCLK, keep SW reset
-    UCB0BRW   = 10;                                                     // fSCL = SMCLK/10 = ~100kHz with SMCLK 1MHz
-    UCB0BRW   = 0;
+        UCB0BR0   = 10;                                                     // fSCL = SMCLK/10 = ~100kHz with SMCLK = 1MHz
+    UCB0BR1   = 0;                         
     UCB0CTLW0 &= ~UCSWRST;                                               // Clear SW reset, resume operation
     UCB0IE |= UCTXIE0;                                                 // Enable TX interrupt
 
