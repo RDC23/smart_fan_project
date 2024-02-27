@@ -1,11 +1,11 @@
 #include <msp430fr4133.h>
 #include <stdint.h>
+#include <driverlib.h>
 #include <stdlib.h>
 #include <string.h>
 #include "SSD1306.h"
 #include "i2c.h"
 
-#define OLED_PWR    BIT0                        // OLED power connect/disconnect on pin P1.0
 
 #define ANUMBER     19052019
 #define MAX_COUNT   4.2e9
@@ -17,11 +17,9 @@ int main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;	                // stop watchdog timer
 
+    PM5CTL0 &= ~LOCKLPM5;
+    __enable_interrupt();
     i2c_init();                                 // initialize I2C to use with OLED
-
-    P1DIR = OLED_PWR;                           // P1.0 output, else input
-    P1OUT ^= OLED_PWR;                          // turn on power to display
-
     ssd1306_init();                             // Initialize SSD1306 OLED
     ssd1306_clearDisplay();                     // Clear OLED display
 

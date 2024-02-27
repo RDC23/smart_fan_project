@@ -25,6 +25,9 @@ const unsigned char HcenterUL[] = {                                           //
                                25                                       // 10 digits and 3 separators
 };
 
+
+unsigned char buffer[17];                                                 // buffer for data transmission to screen
+
 void ssd1306_init(void) {
     // SSD1306 init sequence
     ssd1306_command(SSD1306_DISPLAYOFF);                                // 0xAE

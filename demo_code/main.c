@@ -1,5 +1,5 @@
 // SYSTEM LIBRARIES
-#include <msp430fr4133.h> 
+#include <msp430fr4133.h>
 #include <driverlib.h>
 #include <math.h>
 #include <stdbool.h>
@@ -14,12 +14,13 @@
 
 // DEFINES
 #define MODE_BUTTON_PIN BIT6 // P2.6 (On launchpad)
-#define ON_OFF_BUTTON  BIT2 // P1.2 (On launchpad)
-#define BUTTON_DEBOUNCE() (__delay_cycles(120000))
+#define ON_OFF_BUTTON BIT2   // P1.2 (On launchpad)
+#define BUTTON_DEBOUNCE() (__delay_cycles(200000))
 #define ANGLE_INCREMENT_SWEEP 5 // The number of degrees the servo should 'sweep' per iteration of main loop
 
 // TYPEDEFS
-typedef enum {
+typedef enum
+{
     SWEEP = 0,
     TRACK = 1,
     STATIC = 2,
@@ -42,7 +43,7 @@ volatile int to_angle = 0;
 void init_GPIO()
 {
     // Setup button to toggle fan mode
-    P2DIR &= ~MODE_BUTTON_PIN;  // Should this not be input &= ~MODE_BUTTON_PIN?
+    P2DIR &= ~MODE_BUTTON_PIN; // Should this not be input &= ~MODE_BUTTON_PIN?
     P2REN |= MODE_BUTTON_PIN;
     P2OUT |= MODE_BUTTON_PIN;
     P2IES |= MODE_BUTTON_PIN;
@@ -76,7 +77,7 @@ bool movement_event(int cdist)
 
 void cycle_fan_mode()
 {
-    switch(current_mode)
+    switch (current_mode)
     {
     case STATIC:
         current_mode = SWEEP;
@@ -100,7 +101,7 @@ int main(void)
     // Setup Peripherals
     init_thermistor();
     pir_init();
-	ultrasonic_setup_pins();
+    ultrasonic_setup_pins();
     init_GPIO();
     fan_init();
     servo_init();
@@ -108,52 +109,49 @@ int main(void)
     Init_LCD();
     displayFanMode(current_mode);
 
-	// Enable global interrupts
+    // Enable global interrupts
     __enable_interrupt();
 
-	while (1)
-	{
-	    // 1) Check on/off button
-	    if (fan_on)
-	    {
-	        BUTTON_DEBOUNCE();
-
-	        // 2) Check if fan needs torque boost (starting from stopped)
-	        if (needs_torque_boost)
-	        {
-	            fan_torque_boost();
-	            needs_torque_boost = false;
-	        }
+    while (1)
+    {
+        // 1) Check on/off button
+        if (fan_on)
+        {
+            // 2) Check if fan needs torque boost (starting from stopped)
+            if (needs_torque_boost)
+            {
+                fan_torque_boost();
+                needs_torque_boost = false;
+            }
 
             // 3) Handle mode updates
-	        displayFanMode(current_mode);
+            displayFanMode(current_mode);
             if (has_toggled_mode)
             {
-                BUTTON_DEBOUNCE();
                 cycle_fan_mode();
                 displayFanMode(current_mode);
                 has_toggled_mode = false;
             }
 
             // 4) Take temperature reading and handle fan speed & power efficiency updates
-            current_temperature =  measure_temperature();
+            current_temperature = measure_temperature();
             fan_temp_to_speed(current_temperature);
-            fan_speed_to_power_LED();	    
+            fan_speed_to_power_LED();
 
             // 5) Update the fan power display
             fan_power = fan_calculate_power();
 
             // **** RUIHANG FUNCTION TO DISPLAY POWER ****
-            //powerPrint(fan_power);
+            // powerPrint(fan_power);
 
             // 6) Handle mode defined servo actions
-            switch(current_mode)
+            switch (current_mode)
             {
             case STATIC:
                 if (cur_servo_ang != MID)
                 {
-                // Face the front and then do not move
-                servo_cycle_gradual(MID);
+                    // Face the front and then do not move
+                    servo_cycle_gradual(MID);
                 }
                 break;
 
@@ -164,13 +162,13 @@ int main(void)
                 current_dist = ultrasonic_get_distance();
 
                 // If a 'movement event' is detected, turn the servo to face the PIR
-                if(movement_event(current_dist))
+                if (movement_event(current_dist))
                 {
                     servo_cycle_gradual(activated_direction);
                     // Update the last distance with the target position in the new servo frame
                     ultrasonic_fire_pulse();
                     last_measured_distance = ultrasonic_get_distance();
-                }	   
+                }
                 break;
 
             case SWEEP:
@@ -178,7 +176,7 @@ int main(void)
                 // Increment/ Decrement servo angle based on current angle
                 to_angle = cur_servo_ang;
 
-                if(going_cw)
+                if (going_cw)
                 {
                     to_angle += ANGLE_INCREMENT_SWEEP;
                 }
@@ -200,10 +198,10 @@ int main(void)
                 }
 
                 // Move the servo to the new angle
-                servo_cycle_gradual(to_angle);		
+                servo_cycle_gradual(to_angle);
                 break;
             }
-	    }
+        }
         else
         {
             // Perform standby mode actions
@@ -213,10 +211,9 @@ int main(void)
             fan_speed_to_power_LED();
             displayFanMode(OFF);
         }
-	}
-	return 0;
+    }
+    return 0;
 }
-
 
 // INTERRUPT SERVICE ROUTINES FOR I/O PORTS
 
@@ -240,11 +237,12 @@ __interrupt void P1_ISR(void)
         activated_direction = RIGHT;
         P1IFG &= ~PIR_RIGHT;
         break;
-	// Mode toggle button
-	case P1IV_P1IFG2:
-	    fan_on = !fan_on;
-	    P1IFG &= ~ON_OFF_BUTTON;
-		break;
+    // On/off toggle button
+    case P1IV_P1IFG2:
+        BUTTON_DEBOUNCE();
+        fan_on = !fan_on;
+        P1IFG &= ~ON_OFF_BUTTON;
+        break;
     }
 }
 
@@ -253,8 +251,9 @@ __interrupt void P2_ISR(void)
 {
     switch (__even_in_range(P2IV, P2IV_P2IFG7))
     {
-    // On-off button toggle
+    // Mode button toggle
     case P2IV_P2IFG6:
+        BUTTON_DEBOUNCE();
         has_toggled_mode = true;
         P2IFG &= ~MODE_BUTTON_PIN;
         break;

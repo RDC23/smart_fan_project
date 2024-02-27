@@ -5,15 +5,19 @@
 #define SDA BIT2                                                        // i2c sda P5.2
 #define SCL BIT3                                                        // i2c scl P5.3
 
+unsigned char *PTxData;                                                       // Pointer to TX data
+unsigned char TxByteCtr;                                                      // number of bytes to TX
+
 void i2c_init(void) {
-    P5SEL0   |= SCL + SDA;                                              // Assign I2C pins to USCI_B0
-    UCB0CTL1 |= UCSWRST;                                                // Enable SW reset
-    UCB0CTLW0  = UCMST + UCMODE_3 + UCSYNC;                              // I2C Master, synchronous mode
-    UCB0CTL1  = UCSSEL_2 + UCSWRST;                                     // Use SMCLK, keep SW reset
+    P5SEL0   |= SCL;                                             // Assign I2C pins to USCI_B0
+    P5SEL0 |= SDA;
+    UCB0CTLW0 |= UCSWRST;                                                // Enable SW reset
+    UCB0CTLW0 |= UCMST + UCMODE_3 + UCSYNC;                              // I2C Master, synchronous mode
+    UCB0CTLW0 |= UCSSEL_2 + UCSWRST;                                     // Use SMCLK, keep SW reset
     UCB0BRW   = 10;                                                     // fSCL = SMCLK/10 = ~100kHz with SMCLK 1MHz
     UCB0BRW   = 0;
-    UCB0CTL1 &= ~UCSWRST;                                               // Clear SW reset, resume operation
-    UCB0IE |= UCTXIE0;                                                  // Enable TX interrupt
+    UCB0CTLW0 &= ~UCSWRST;                                               // Clear SW reset, resume operation
+    UCB0IE |= UCTXIE0;                                                 // Enable TX interrupt
 
 } // end i2c_init
 
@@ -23,11 +27,9 @@ void i2c_write(unsigned char slave_address, unsigned char *DataBuffer, unsigned 
     PTxData = DataBuffer;
     TxByteCtr = ByteCtr;
 
-    while (UCB0CTL1 & UCTXSTP);                                         // Ensure stop condition got sent
-    UCB0CTL1 |= UCTR + UCTXSTT;                                         // I2C TX, start condition
-    while (UCB0CTL1 & UCTXSTP);                                         // Ensure stop condition got sent
-    __bis_SR_register(CPUOFF + GIE);                                    // Enter LPM0 w/ interrupts
-                                                                        // Remain in LPM0 until all data is TX'd
+    while (UCB0CTLW0 & UCTXSTP);                                         // Ensure stop condition got sent
+    UCB0CTLW0 |= UCTR + UCTXSTT;                                         // I2C TX, start condition
+    while (UCB0CTLW0 & UCTXSTP);                                         // Ensure stop condition got sent                                                                        // Remain in LPM0 until all data is TX'd
 }
 
 
@@ -37,7 +39,9 @@ switch(__even_in_range(UCB0IV,0x1E))
 {
         case USCI_NONE:          break;               // Vector 0: No interrupts break;
         case USCI_I2C_UCALIFG:   break;
-        case USCI_I2C_UCNACKIFG: break;
+        case USCI_I2C_UCNACKIFG:
+            // do something
+            break;
         case USCI_I2C_UCSTTIFG:  break;               // Vector 6: STTIFG break;
         case USCI_I2C_UCSTPIFG:  break;               // Vector 8: STPIFG break;
         case USCI_I2C_UCRXIFG3:  break;               // Vector 10: RXIFG3 break;
@@ -55,9 +59,10 @@ switch(__even_in_range(UCB0IV,0x1E))
             }
             else
             {
-                    UCB0CTL1 |= UCTXSTP;              // I2C stop condition
-                    UCB0IE &= ~UCTXIE0;                // Clear USCI_B0 TX int flag
-                    __bic_SR_register_on_exit(CPUOFF);// Exit LPM0
+                    UCB0CTLW0 |= UCTXSTP;               // I2C stop condition
+                    UCB0IFG &= ~UCTXIFG;
+                    __bic_SR_register_on_exit(LPM0_bits);     // Exit LPM0
+
             }
           break;                                      // Vector 26: TXIFG0 break;
         case USCI_I2C_UCBCNTIFG: break;               // Vector 28: BCNTIFG
