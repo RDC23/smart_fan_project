@@ -29,7 +29,8 @@ void i2c_write(unsigned char slave_address, unsigned char *DataBuffer, unsigned 
 
     while (UCB0CTLW0 & UCTXSTP);                                         // Ensure stop condition got sent
     UCB0CTLW0 |= UCTR + UCTXSTT;                                         // I2C TX, start condition
-    while (UCB0CTLW0 & UCTXSTP);                                         // Ensure stop condition got sent                                                                        // Remain in LPM0 until all data is TX'd
+    while (UCB0CTLW0 & UCTXSTP);                                         // Ensure stop condition got sent
+__bis_SR_register(CPUOFF + GIE);                                                                         // Remain in LPM0 until all data is TX'd
 }
 
 
