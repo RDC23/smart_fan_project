@@ -7955,3 +7955,622 @@ Finished building target: "oled_display.out"
  
 
 **** Build Finished ****
+
+**** Clean-only build of configuration Debug for project temp_control_fan ****
+
+"C:\\ti\\ccs1250\\ccs\\utils\\bin\\gmake" -k -j 4 clean -O 
+ 
+DEL /F  "temp_control_fan.out" 
+DEL /F "fancontroller.obj" "hal_LCD.obj" "main.obj" "driverlib\MSP430FR2xx_4xx\adc.obj" "driverlib\MSP430FR2xx_4xx\crc.obj" "driverlib\MSP430FR2xx_4xx\cs.obj" "driverlib\MSP430FR2xx_4xx\ecomp.obj" "driverlib\MSP430FR2xx_4xx\eusci_a_spi.obj" "driverlib\MSP430FR2xx_4xx\eusci_a_uart.obj" "driverlib\MSP430FR2xx_4xx\eusci_b_i2c.obj" "driverlib\MSP430FR2xx_4xx\eusci_b_spi.obj" "driverlib\MSP430FR2xx_4xx\framctl.obj" "driverlib\MSP430FR2xx_4xx\gpio.obj" "driverlib\MSP430FR2xx_4xx\icc.obj" "driverlib\MSP430FR2xx_4xx\lcd_e.obj" "driverlib\MSP430FR2xx_4xx\mpy32.obj" "driverlib\MSP430FR2xx_4xx\pmm.obj" "driverlib\MSP430FR2xx_4xx\rtc.obj" "driverlib\MSP430FR2xx_4xx\sac.obj" "driverlib\MSP430FR2xx_4xx\sfr.obj" "driverlib\MSP430FR2xx_4xx\sysctl.obj" "driverlib\MSP430FR2xx_4xx\tia.obj" "driverlib\MSP430FR2xx_4xx\timer_a.obj" "driverlib\MSP430FR2xx_4xx\timer_b.obj" "driverlib\MSP430FR2xx_4xx\tlv.obj" "driverlib\MSP430FR2xx_4xx\wdt_a.obj" 
+DEL /F "fancontroller.d" "hal_LCD.d" "main.d" "driverlib\MSP430FR2xx_4xx\adc.d" "driverlib\MSP430FR2xx_4xx\crc.d" "driverlib\MSP430FR2xx_4xx\cs.d" "driverlib\MSP430FR2xx_4xx\ecomp.d" "driverlib\MSP430FR2xx_4xx\eusci_a_spi.d" "driverlib\MSP430FR2xx_4xx\eusci_a_uart.d" "driverlib\MSP430FR2xx_4xx\eusci_b_i2c.d" "driverlib\MSP430FR2xx_4xx\eusci_b_spi.d" "driverlib\MSP430FR2xx_4xx\framctl.d" "driverlib\MSP430FR2xx_4xx\gpio.d" "driverlib\MSP430FR2xx_4xx\icc.d" "driverlib\MSP430FR2xx_4xx\lcd_e.d" "driverlib\MSP430FR2xx_4xx\mpy32.d" "driverlib\MSP430FR2xx_4xx\pmm.d" "driverlib\MSP430FR2xx_4xx\rtc.d" "driverlib\MSP430FR2xx_4xx\sac.d" "driverlib\MSP430FR2xx_4xx\sfr.d" "driverlib\MSP430FR2xx_4xx\sysctl.d" "driverlib\MSP430FR2xx_4xx\tia.d" "driverlib\MSP430FR2xx_4xx\timer_a.d" "driverlib\MSP430FR2xx_4xx\timer_b.d" "driverlib\MSP430FR2xx_4xx\tlv.d" "driverlib\MSP430FR2xx_4xx\wdt_a.d" 
+Finished clean
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project temp_control_fan ****
+
+"C:\\ti\\ccs1250\\ccs\\utils\\bin\\gmake" -k -j 4 all -O 
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/adc.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/adc.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/adc.c"
+"../driverlib/MSP430FR2xx_4xx/adc.c", line 172: remark #1528-D: (ULP 3.1) Detected flag polling using ADCBUSY. Recommend using an interrupt combined with enter LPMx and ISR
+Finished building: "../driverlib/MSP430FR2xx_4xx/adc.c"
+ 
+Building file: "../hal_LCD.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="hal_LCD.d_raw"  "../hal_LCD.c"
+"../hal_LCD.c", line 100: remark #1546-D: (ULP 15.1) Detected consecutive bitfield assigns. Recommend using bit mask instead
+"../hal_LCD.c", line 101: remark #1546-D: (ULP 15.1) Detected consecutive bitfield assigns. Recommend using bit mask instead
+"../hal_LCD.c", line 142: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../hal_LCD.c", line 145: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../hal_LCD.c", line 146: remark #2553-D: (ULP 14.1) Array index (involving "t") of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 148: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../hal_LCD.c", line 151: remark #1545-D: (ULP 14.1) Array index of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 151: remark #2553-D: (ULP 14.1) Array index (involving "j") of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 162: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../hal_LCD.c", line 145: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../hal_LCD.c", line 146: remark #2553-D: (ULP 14.1) Array index (involving "t") of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 148: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../hal_LCD.c", line 151: remark #1545-D: (ULP 14.1) Array index of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 151: remark #2553-D: (ULP 14.1) Array index (involving "j") of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 162: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../hal_LCD.c", line 175: remark #2553-D: (ULP 14.1) Array index (involving "position") of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 175: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../hal_LCD.c", line 180: remark #2553-D: (ULP 14.1) Array index (involving "position") of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 180: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../hal_LCD.c", line 180: remark #2553-D: (ULP 14.1) Array index (involving "c") of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 180: remark #2553-D: (ULP 14.1) Array index (involving "c") of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 185: remark #2553-D: (ULP 14.1) Array index (involving "position") of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 185: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../hal_LCD.c", line 185: remark #2553-D: (ULP 14.1) Array index (involving "c") of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 185: remark #2553-D: (ULP 14.1) Array index (involving "c") of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 190: remark #2553-D: (ULP 14.1) Array index (involving "position") of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 190: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../hal_LCD.c", line 221: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../hal_LCD.c", line 221: remark #1543-D: (ULP 12.2) Detected for loop with repetitive data transfer. Recommend using DMA
+"../hal_LCD.c", line 223: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 223: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../hal_LCD.c", line 259: warning #225-D: function "sprintf" declared implicitly
+"../hal_LCD.c", line 259: remark #1532-D: (ULP 5.3) Detected sprintf() operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../hal_LCD.c", line 252 (col. 6): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../hal_LCD.c", line 259 (col. 12): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+Finished building: "../hal_LCD.c"
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 124: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 138: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 151: remark #1532-D: (ULP 5.3) Detected sprintf() operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 159: remark #1532-D: (ULP 5.3) Detected sprintf() operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 124: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 138: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 186: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 186: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../main.c", line 187: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 187: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../main.c", line 188: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 188: remark #1538-D: (ULP 10.1) ISR ADC_ISR calls function log. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 189: remark #1538-D: (ULP 10.1) ISR ADC_ISR calls function ADC_clearInterrupt. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 334 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 335 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 336 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 337 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 338 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 339 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 341 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 342 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 343 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 344 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 345 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 346 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 347 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 348 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 349 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 351 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 352 (col. 11): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 353 (col. 11): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 355 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 356 (col. 11): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 357 (col. 11): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 359 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 360 (col. 11): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 361 (col. 11): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 363 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 364 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 365 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 366 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 367 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 368 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 374 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 375 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 376 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 377 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 378 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 379 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 396 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 398 (col. 9): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 400 (col. 13): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 404 (col. 9): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 406 (col. 13): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 413 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 415 (col. 9): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 417 (col. 13): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 421 (col. 9): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 423 (col. 13): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 430 (col. 37): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 432 (col. 9): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 434 (col. 13): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 438 (col. 9): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/_defs.h", line 440 (col. 13): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 133 (col. 30): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 184 (col. 19): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 186 (col. 13): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 187 (col. 12): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 188 (col. 21): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+Finished building: "../main.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/crc.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/crc.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/crc.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/crc.c"
+ 
+Building file: "../fancontroller.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="fancontroller.d_raw"  "../fancontroller.c"
+"../fancontroller.c", line 21: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../fancontroller.c", line 26: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../fancontroller.c", line 26: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../fancontroller.c", line 31: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../fancontroller.c", line 31: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../fancontroller.c", line 44: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../fancontroller.c", line 44: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../fancontroller.c", line 29 (col. 6): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../fancontroller.c", line 31 (col. 17): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../fancontroller.c", line 41 (col. 8): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../fancontroller.c", line 44 (col. 12): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+Finished building: "../fancontroller.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/ecomp.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/ecomp.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/ecomp.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/ecomp.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/eusci_a_spi.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/eusci_a_spi.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/eusci_a_spi.c"
+"../driverlib/MSP430FR2xx_4xx/eusci_a_spi.c", line 69: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/eusci_a_spi.c", line 105: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+Finished building: "../driverlib/MSP430FR2xx_4xx/eusci_a_spi.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/cs.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/cs.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/cs.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/cs.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/eusci_a_uart.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/eusci_a_uart.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/eusci_a_uart.c"
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 164: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 164: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 179: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 203: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 207: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 212: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 244: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 247: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 250: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 253: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 256: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 259: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 262: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 265: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 268: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 273: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 323: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 632: remark #1535-D: (ULP 8.1) variable "dco_FLLD" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 734: remark #1535-D: (ULP 8.1) variable "dco_FLLD" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 853: remark #1535-D: (ULP 8.1) variable "dco_FLLD" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 1015: remark #1535-D: (ULP 8.1) variable "ACLKSourceDivider" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/eusci_a_uart.c", line 54: remark #1535-D: (ULP 8.1) variable "retVal" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/eusci_a_uart.c", line 118: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_a_uart.c", line 129: remark #1528-D: (ULP 3.1) Detected flag polling using UCRXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_a_uart.c", line 237: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+Finished building: "../driverlib/MSP430FR2xx_4xx/eusci_a_uart.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/framctl.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/framctl.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/framctl.c"
+"../driverlib/MSP430FR2xx_4xx/framctl.c", line 60: remark #1535-D: (ULP 8.1) variable "wp" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/framctl.c", line 92: remark #1535-D: (ULP 8.1) variable "wp" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/framctl.c", line 124: remark #1535-D: (ULP 8.1) variable "wp" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/framctl.c", line 158: remark #1535-D: (ULP 8.1) variable "wp" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+Finished building: "../driverlib/MSP430FR2xx_4xx/framctl.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/eusci_b_spi.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c"
+"../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c", line 69: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c", line 103: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+Finished building: "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/icc.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/icc.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/icc.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/icc.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/gpio.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/gpio.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/gpio.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/gpio.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/eusci_b_i2c.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c"
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 84: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 217: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 223: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 250: remark #1528-D: (ULP 3.1) Detected flag polling using UCRXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 244: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 274: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 285: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 318: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 342: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 365: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 380: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 401: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 408: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 424: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 436: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 459: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 472: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 508: remark #1528-D: (ULP 3.1) Detected flag polling using UCRXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 505: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 534: remark #1528-D: (ULP 3.1) Detected flag polling using UCRXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 526: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 571: remark #1528-D: (ULP 3.1) Detected flag polling using UCRXIFG0. Recommend using an interrupt combined with enter LPMx and ISR
+Finished building: "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/lcd_e.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/lcd_e.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/lcd_e.c"
+"../driverlib/MSP430FR2xx_4xx/lcd_e.c", line 343: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/lcd_e.c", line 344: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/lcd_e.c", line 347: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/lcd_e.c", line 348: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+Finished building: "../driverlib/MSP430FR2xx_4xx/lcd_e.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/mpy32.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/mpy32.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/mpy32.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/mpy32.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/rtc.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/rtc.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/rtc.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/rtc.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/pmm.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/pmm.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/pmm.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/pmm.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/sac.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/sac.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/sac.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/sac.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/sfr.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/sfr.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/sfr.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/sfr.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/sysctl.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/sysctl.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/sysctl.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/sysctl.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/tia.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/tia.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/tia.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/tia.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/timer_b.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/timer_b.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/timer_b.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/timer_b.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/timer_a.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/timer_a.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/timer_a.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/timer_a.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/wdt_a.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/wdt_a.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/wdt_a.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/wdt_a.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/tlv.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/temp_control_fan/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/tlv.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/tlv.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/tlv.c"
+ 
+Building target: "temp_control_fan.out"
+Invoking: MSP430 Linker
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"temp_control_fan.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccs1250/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="temp_control_fan_linkInfo.xml" --use_hw_mpy=none --rom_model -o "temp_control_fan.out" "./fancontroller.obj" "./hal_LCD.obj" "./main.obj" "./driverlib/MSP430FR2xx_4xx/adc.obj" "./driverlib/MSP430FR2xx_4xx/crc.obj" "./driverlib/MSP430FR2xx_4xx/cs.obj" "./driverlib/MSP430FR2xx_4xx/ecomp.obj" "./driverlib/MSP430FR2xx_4xx/eusci_a_spi.obj" "./driverlib/MSP430FR2xx_4xx/eusci_a_uart.obj" "./driverlib/MSP430FR2xx_4xx/eusci_b_i2c.obj" "./driverlib/MSP430FR2xx_4xx/eusci_b_spi.obj" "./driverlib/MSP430FR2xx_4xx/framctl.obj" "./driverlib/MSP430FR2xx_4xx/gpio.obj" "./driverlib/MSP430FR2xx_4xx/icc.obj" "./driverlib/MSP430FR2xx_4xx/lcd_e.obj" "./driverlib/MSP430FR2xx_4xx/mpy32.obj" "./driverlib/MSP430FR2xx_4xx/pmm.obj" "./driverlib/MSP430FR2xx_4xx/rtc.obj" "./driverlib/MSP430FR2xx_4xx/sac.obj" "./driverlib/MSP430FR2xx_4xx/sfr.obj" "./driverlib/MSP430FR2xx_4xx/sysctl.obj" "./driverlib/MSP430FR2xx_4xx/tia.obj" "./driverlib/MSP430FR2xx_4xx/timer_a.obj" "./driverlib/MSP430FR2xx_4xx/timer_b.obj" "./driverlib/MSP430FR2xx_4xx/tlv.obj" "./driverlib/MSP430FR2xx_4xx/wdt_a.obj" "../lnk_msp430fr4133.cmd"  -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port D in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+Finished building target: "temp_control_fan.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project oled_display ****
+
+"C:\\ti\\ccs1250\\ccs\\utils\\bin\\gmake" -k -j 4 all -O 
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 37: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 61: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 75: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 76: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../main.c", line 78: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 83: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 84: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../main.c", line 86: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 89: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 37: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 61: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 75: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 78: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 83: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 86: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 89: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 74 (col. 17): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+Finished building: "../main.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/adc.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/adc.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/adc.c"
+"../driverlib/MSP430FR2xx_4xx/adc.c", line 172: remark #1528-D: (ULP 3.1) Detected flag polling using ADCBUSY. Recommend using an interrupt combined with enter LPMx and ISR
+Finished building: "../driverlib/MSP430FR2xx_4xx/adc.c"
+ 
+Building file: "../i2c.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="i2c.d_raw"  "../i2c.c"
+"../i2c.c", line 30: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../i2c.c", line 32: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+Finished building: "../i2c.c"
+ 
+Building file: "../ssd1306.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ssd1306.d_raw"  "../ssd1306.c"
+"../ssd1306.c", line 82: remark #2553-D: (ULP 14.1) Array index (involving "x") of type "int". Recommend using "unsigned int"
+"../ssd1306.c", line 84: remark #2553-D: (ULP 14.1) Array index (involving "x") of type "int". Recommend using "unsigned int"
+"../ssd1306.c", line 82: remark #2553-D: (ULP 14.1) Array index (involving "x") of type "int". Recommend using "unsigned int"
+"../ssd1306.c", line 84: remark #2553-D: (ULP 14.1) Array index (involving "x") of type "int". Recommend using "unsigned int"
+"../ssd1306.c", line 123: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../ssd1306.c", line 124: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../ssd1306.c", line 124: remark #2553-D: (ULP 14.1) Array index (involving "ptString") of type "int". Recommend using "unsigned int"
+"../ssd1306.c", line 123: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../ssd1306.c", line 124: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../ssd1306.c", line 124: remark #2553-D: (ULP 14.1) Array index (involving "ptString") of type "int". Recommend using "unsigned int"
+"../ssd1306.c", line 211: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../ssd1306.c", line 213: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+Finished building: "../ssd1306.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/ecomp.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/ecomp.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/ecomp.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/ecomp.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/crc.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/crc.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/crc.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/crc.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/eusci_a_spi.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/eusci_a_spi.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/eusci_a_spi.c"
+"../driverlib/MSP430FR2xx_4xx/eusci_a_spi.c", line 69: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/eusci_a_spi.c", line 105: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+Finished building: "../driverlib/MSP430FR2xx_4xx/eusci_a_spi.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/cs.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/cs.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/cs.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/cs.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/eusci_a_uart.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/eusci_a_uart.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/eusci_a_uart.c"
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 164: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 164: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 179: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 203: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 207: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 212: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 244: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 247: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 250: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 253: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 256: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 259: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 262: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 265: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 268: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 273: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 323: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 632: remark #1535-D: (ULP 8.1) variable "dco_FLLD" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 734: remark #1535-D: (ULP 8.1) variable "dco_FLLD" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 853: remark #1535-D: (ULP 8.1) variable "dco_FLLD" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/cs.c", line 1015: remark #1535-D: (ULP 8.1) variable "ACLKSourceDivider" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/eusci_a_uart.c", line 54: remark #1535-D: (ULP 8.1) variable "retVal" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/eusci_a_uart.c", line 118: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_a_uart.c", line 129: remark #1528-D: (ULP 3.1) Detected flag polling using UCRXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_a_uart.c", line 237: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+Finished building: "../driverlib/MSP430FR2xx_4xx/eusci_a_uart.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/eusci_b_spi.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c"
+"../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c", line 69: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c", line 103: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+Finished building: "../driverlib/MSP430FR2xx_4xx/eusci_b_spi.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/eusci_b_i2c.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c"
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 84: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 217: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 223: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 250: remark #1528-D: (ULP 3.1) Detected flag polling using UCRXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 244: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 274: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 285: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 318: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 342: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 365: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 380: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 401: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 408: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 424: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 436: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 459: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 472: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 508: remark #1528-D: (ULP 3.1) Detected flag polling using UCRXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 505: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 534: remark #1528-D: (ULP 3.1) Detected flag polling using UCRXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 526: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c", line 571: remark #1528-D: (ULP 3.1) Detected flag polling using UCRXIFG0. Recommend using an interrupt combined with enter LPMx and ISR
+Finished building: "../driverlib/MSP430FR2xx_4xx/eusci_b_i2c.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/framctl.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/framctl.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/framctl.c"
+"../driverlib/MSP430FR2xx_4xx/framctl.c", line 60: remark #1535-D: (ULP 8.1) variable "wp" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/framctl.c", line 92: remark #1535-D: (ULP 8.1) variable "wp" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/framctl.c", line 124: remark #1535-D: (ULP 8.1) variable "wp" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../driverlib/MSP430FR2xx_4xx/framctl.c", line 158: remark #1535-D: (ULP 8.1) variable "wp" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+Finished building: "../driverlib/MSP430FR2xx_4xx/framctl.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/icc.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/icc.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/icc.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/icc.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/mpy32.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/mpy32.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/mpy32.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/mpy32.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/lcd_e.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/lcd_e.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/lcd_e.c"
+"../driverlib/MSP430FR2xx_4xx/lcd_e.c", line 343: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/lcd_e.c", line 344: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/lcd_e.c", line 347: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../driverlib/MSP430FR2xx_4xx/lcd_e.c", line 348: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+Finished building: "../driverlib/MSP430FR2xx_4xx/lcd_e.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/pmm.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/pmm.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/pmm.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/pmm.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/rtc.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/rtc.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/rtc.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/rtc.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/gpio.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/gpio.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/gpio.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/gpio.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/sac.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/sac.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/sac.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/sac.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/sfr.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/sfr.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/sfr.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/sfr.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/tia.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/tia.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/tia.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/tia.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/sysctl.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/sysctl.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/sysctl.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/sysctl.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/timer_b.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/timer_b.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/timer_b.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/timer_b.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/wdt_a.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/wdt_a.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/wdt_a.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/wdt_a.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/timer_a.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/timer_a.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/timer_a.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/timer_a.c"
+ 
+Building file: "../driverlib/MSP430FR2xx_4xx/tlv.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --include_path="C:/ti/ccs1250/ccs/ccs_base/msp430/include" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display" --include_path="C:/Users/rdcsc/Desktop/EE318_PROJECT/Software Testing/oled_display/driverlib/MSP430FR2xx_4xx/" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="driverlib/MSP430FR2xx_4xx/tlv.d_raw" --obj_directory="driverlib/MSP430FR2xx_4xx"  "../driverlib/MSP430FR2xx_4xx/tlv.c"
+Finished building: "../driverlib/MSP430FR2xx_4xx/tlv.c"
+ 
+Building target: "oled_display.out"
+Invoking: MSP430 Linker
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=none --advice:power=all --advice:hw_config=all --define=__MSP430FR4133__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"oled_display.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccs1250/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="oled_display_linkInfo.xml" --use_hw_mpy=none --rom_model -o "oled_display.out" "./i2c.obj" "./main.obj" "./ssd1306.obj" "./driverlib/MSP430FR2xx_4xx/adc.obj" "./driverlib/MSP430FR2xx_4xx/crc.obj" "./driverlib/MSP430FR2xx_4xx/cs.obj" "./driverlib/MSP430FR2xx_4xx/ecomp.obj" "./driverlib/MSP430FR2xx_4xx/eusci_a_spi.obj" "./driverlib/MSP430FR2xx_4xx/eusci_a_uart.obj" "./driverlib/MSP430FR2xx_4xx/eusci_b_i2c.obj" "./driverlib/MSP430FR2xx_4xx/eusci_b_spi.obj" "./driverlib/MSP430FR2xx_4xx/framctl.obj" "./driverlib/MSP430FR2xx_4xx/gpio.obj" "./driverlib/MSP430FR2xx_4xx/icc.obj" "./driverlib/MSP430FR2xx_4xx/lcd_e.obj" "./driverlib/MSP430FR2xx_4xx/mpy32.obj" "./driverlib/MSP430FR2xx_4xx/pmm.obj" "./driverlib/MSP430FR2xx_4xx/rtc.obj" "./driverlib/MSP430FR2xx_4xx/sac.obj" "./driverlib/MSP430FR2xx_4xx/sfr.obj" "./driverlib/MSP430FR2xx_4xx/sysctl.obj" "./driverlib/MSP430FR2xx_4xx/tia.obj" "./driverlib/MSP430FR2xx_4xx/timer_a.obj" "./driverlib/MSP430FR2xx_4xx/timer_b.obj" "./driverlib/MSP430FR2xx_4xx/tlv.obj" "./driverlib/MSP430FR2xx_4xx/wdt_a.obj" "../lnk_msp430fr4133.cmd"  -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port D in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+Finished building target: "oled_display.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project oled_display ****
+
+"C:\\ti\\ccs1250\\ccs\\utils\\bin\\gmake" -k -j 4 all -O 
+ 
+gmake[1]: 'oled_display.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project oled_display ****
+
+"C:\\ti\\ccs1250\\ccs\\utils\\bin\\gmake" -k -j 4 all -O 
+ 
+gmake[1]: 'oled_display.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project oled_display ****
+
+"C:\\ti\\ccs1250\\ccs\\utils\\bin\\gmake" -k -j 4 all -O 
+ 
+gmake[1]: 'oled_display.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project oled_display ****
+
+"C:\\ti\\ccs1250\\ccs\\utils\\bin\\gmake" -k -j 4 all -O 
+ 
+gmake[1]: 'oled_display.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project oled_display ****
+
+"C:\\ti\\ccs1250\\ccs\\utils\\bin\\gmake" -k -j 4 all -O 
+ 
+gmake[1]: 'oled_display.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project oled_display ****
+
+"C:\\ti\\ccs1250\\ccs\\utils\\bin\\gmake" -k -j 4 all -O 
+ 
+gmake[1]: 'oled_display.out' is up to date.
+
+**** Build Finished ****

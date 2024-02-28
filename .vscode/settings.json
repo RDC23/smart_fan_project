@@ -9,8 +9,6 @@
         "pir.h": "c",
         "stdbool.h": "c",
         "msp430.h": "c",
-        "msp430fr4133.h": "c",
-        "stdint.h": "c",
-        "i2c.h": "c"
+        "msp430fr4133.h": "c"
     }
 }

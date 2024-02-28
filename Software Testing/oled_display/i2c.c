@@ -17,7 +17,7 @@ void i2c_init(void) {
     UCB0BR0   = 10;                                                     // fSCL = SMCLK/10 = ~100kHz with SMCLK=1MHz
     UCB0BR1   = 0;                         
     UCB0CTL1 &= ~UCSWRST;                                               // Clear SW reset, resume operation
-    UCB0IE |= UCTXIE0;                                                 // Enable TX interrupt
+    UCB0IE |= UCTXIE2;                                                 // Enable TX interrupt
 
 } // end i2c_init
 
@@ -29,7 +29,7 @@ void i2c_write(unsigned char slave_address, unsigned char *DataBuffer, unsigned 
 
     while (UCB0CTL1 & UCTXSTP);                                         // Ensure stop condition got sent
     UCB0CTL1 |= UCTR + UCTXSTT;                                         // I2C TX, start condition
-    while (UCB0CTLW0 & UCTXSTP);                                        // Ensure stop condition got sent
+    while (UCB0CTL1 & UCTXSTP);                                        // Ensure stop condition got sent
     __bis_SR_register(CPUOFF + GIE);                                    // Remain in LPM0 until all data is TX'd
 }
 
@@ -47,8 +47,8 @@ switch(__even_in_range(UCB0IV,0x1E))
             else
             {
                     UCB0CTL1 |= UCTXSTP;               // I2C stop condition
-                    UCB0IFG &= ~UCTXIFG;
-                    __bic_SR_register_on_exit(LPM0_bits);     // Exit LPM0
+                    UCB0IFG &= ~UCTXIFG2;
+                    __bic_SR_register_on_exit(CPUOFF);     // Exit LPM0
 
             }
           break;                                      // Vector 26: TXIFG0 break;

@@ -3,7 +3,10 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/driverlib/MSP430FR2xx_4xx/**",
+                "C:\\ti\\ccs1250\\ccs\\ccs_base\\msp430\\include_gcc\\**",
+                "C:\\ti\\ccs1250\\ccs\\ccs_base\\msp430\\include\\**"
             ],
             "defines": [
                 "_DEBUG",
