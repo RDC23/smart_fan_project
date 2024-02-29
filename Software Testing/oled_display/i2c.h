@@ -3,9 +3,8 @@
 
 #include <msp430fr4133.h>
 
-unsigned char *PTxData;                                                       // Pointer to TX data
-unsigned char TxByteCtr;                                                      // number of bytes to TX
-
+extern unsigned char *PTxData;                                                       // Pointer to TX data
+extern unsigned char TxByteCtr;
 /* ====================================================================
  * I2C Prototype Definitions
  * ==================================================================== */

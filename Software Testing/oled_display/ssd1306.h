@@ -10,7 +10,8 @@
 #include <string.h>
 #include "i2c.h"
 
-unsigned char buffer[17];                                                     // buffer for data transmission to screen
+extern unsigned char buffer[17];
+extern const unsigned char HcenterUL[];
 
 /* ====================================================================
  * Horizontal Centering Number Array

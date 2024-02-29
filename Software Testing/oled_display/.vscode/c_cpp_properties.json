@@ -6,8 +6,7 @@
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/driverlib/MSP430FR2xx_4xx/**",
                 "C:\\ti\\ccs1250\\ccs\\ccs_base\\msp430\\include_gcc\\**",
-                "C:\\ti\\ccs1250\\ccs\\ccs_base\\msp430\\include\\**",
-                "C:\\ti\\ccs1250\\ccs\\ccs_base\\msp430\\lib\\**"
+                "C:\\ti\\ccs1250\\ccs\\ccs_base\\msp430\\include\\**"
             ],
             "defines": [
                 "_DEBUG",
