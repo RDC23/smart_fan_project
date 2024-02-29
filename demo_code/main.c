@@ -1,3 +1,10 @@
+// main.c
+// Author : Ross Cathcart
+// Module: Part of Smart Fan Project
+// Last update : 29/02/2024 - added logic to enable power output to be diplayed to the screen of MSP430
+// This is the main code file to handle the business level logic and interact with components via 
+// the API's deveoped.
+
 // SYSTEM LIBRARIES
 #include <msp430fr4133.h> 
 #include <driverlib.h>

@@ -1,33 +1,34 @@
+// ultrasonic.c
+// Author: Ross Cathcart
+// Module: Smart Fan Project
+// Last update: 29/02/2024 - updated distance conversion formula to simplify computation
+// Description: Provides function definitions to setup HC-SR04 ultrasonic sensor and ISR code
+// for timing and distance measurement using Timer A1.
+
 #include "ultrasonic.h"
 
-// Static used to limit global scope of variables to this compilation unit.
 static volatile unsigned long validated_dist = 0;
 
 void ultrasonic_fire_pulse()
 {
-    // Clear the timer for the ECHO pin
-    TA1CTL |= TACLR;
-    // Send out a short 10us (logic high) trigger pulse
-    P8OUT &= ~TRIG_PIN;
+    TA1CTL |= TACLR;      // Clear timer for ECHO pin
+    P8OUT &= ~TRIG_PIN;   // Send 10us trigger pulse
     __delay_cycles(2);
     P8OUT |= TRIG_PIN;
     __delay_cycles(10);
     P8OUT &= ~TRIG_PIN;
-    // Wait for 60 ms before allowing function to be called again.
-    __delay_cycles(60000);
+    __delay_cycles(60000); // Wait 60ms before next call
 }
 
 void ultrasonic_setup_pins()
 {
-    // P8.2 trigger pulse. GPIO output
-    P8DIR |= TRIG_PIN;
+    P8DIR |= TRIG_PIN;    // Trigger pulse (GPIO output)
     P8OUT &= ~TRIG_PIN;
 
-    // P8.3 echo pulse and timer input. Secondary function, TA1 CCI2A input
-    P8DIR &= ~ECHO_PIN;
+    P8DIR &= ~ECHO_PIN;   // Echo pulse and timer input (Secondary function, TA1 CCI2A input)
     P8SEL0 |= ECHO_PIN;
-    TA1CTL |= TASSEL_2 | MC_2 | TACLR; // SMCLK input source for 1MHz, continuous mode
-    TA1CCTL2 |= CM_3 | SCS | CAP | CCIS_0 | CCIE; // Capture on both edges, sync capture, capture mode, input select CCIxA, enable interrupts
+    TA1CTL |= TASSEL_2 | MC_2 | TACLR; // SMCLK input source (1MHz), continuous mode
+    TA1CCTL2 |= CM_3 | SCS | CAP | CCIS_0 | CCIE; // Capture on both edges
 }
 
 unsigned long ultrasonic_get_distance()
@@ -35,42 +36,35 @@ unsigned long ultrasonic_get_distance()
     return validated_dist;
 }
 
-// ISR for Timer A1 (ECHO signal capture)
 #pragma vector = TIMER1_A1_VECTOR
 __interrupt void TIMERA1_ISR1(void)
 {
-    // Declared 'static' to maintain state between ISRQ calls
     static volatile unsigned long start_time;
     static volatile unsigned long end_time;
     static volatile unsigned long delta_time;
     static volatile unsigned long distance;
 
-    TA1CTL &= ~CCIFG; // Clear the interrupt flag
+    TA1CTL &= ~CCIFG; // Clear interrupt flag
     switch(TA1IV)
     {
     case 10: // Timer overflow
         break;
     default:
-       // Read the CCI bit (ECHO signal) in CCTL1
-       // If ECHO is HIGH then start counting (rising edge)
-       if (TA1CCTL2 & CCI)
+       if (TA1CCTL2 & CCI) // Rising edge
        {
          start_time = TA1CCR2;
        }
-       // If ECHO is LOW then stop counting (falling edge)
-       else
+       else // Falling edge
        {
          end_time = TA1CCR2;
          delta_time = end_time - start_time;
-         distance = (unsigned long)(delta_time / 58.3090379); // 58.3 = speed of sound cm/s, halved for echo time bounce
+         distance = delta_time / 58; // Speed of sound in cm/ms
 
-         //only accept values within HC-SR04 valid range
-         if (distance  >= 0.0 && distance <= MAX_RANGE)
+         if (distance >= 0 && distance <= MAX_RANGE) // Accept values within HC-SR04 range
          {
            validated_dist = distance;
          }
        }
        break;
      }
-
-   }
+}

@@ -1,3 +1,8 @@
+// pir.c
+// Author : Ross Cathcart
+// Last update : 29/02/2024 - added configuration of PIR pins
+// This is the implementation file for pir.c, containing a function to initialise the PIR sensor pins.
+
 #include "pir.h"
 
 void pir_init()
