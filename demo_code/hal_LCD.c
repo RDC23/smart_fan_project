@@ -257,7 +257,7 @@ void powerPrint(double powerval)
     clearLCD();
     char buffer[6];
     // Multiply by 1000 to convert to milliwatts
-    int milliwatts = (int)(powerval * 1000);
+    int milliwatts = (int)(powerval);
     sprintf(buffer, "%dMW", milliwatts);
     displayShortMessage(buffer);
 }

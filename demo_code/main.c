@@ -41,6 +41,7 @@ volatile bool has_toggled_mode = false;
 volatile int last_measured_distance = 0;
 volatile int current_dist = 0;
 volatile float current_temperature = 0;
+volatile bool show_power = false;
 volatile double fan_power = 100;
 volatile bool fan_on = true;
 volatile bool needs_torque_boost = false;
@@ -148,8 +149,12 @@ int main(void)
             // 5) Update the fan power display
             fan_power = fan_calculate_power();
 
-            // **** RUIHANG FUNCTION TO DISPLAY POWER ****
-            // powerPrint(fan_power);
+            if (show_power)
+            {
+                powerPrint(fan_power);
+                show_power = false;
+                __delay_cycles(1000000);
+            }
 
             // 6) Handle mode defined servo actions
             switch (current_mode)
@@ -247,7 +252,8 @@ __interrupt void P1_ISR(void)
     // On/off toggle button
     case P1IV_P1IFG2:
         BUTTON_DEBOUNCE();
-        fan_on = !fan_on;
+        //fan_on = !fan_on;
+        show_power = !show_power;
         P1IFG &= ~ON_OFF_BUTTON;
         break;
     }

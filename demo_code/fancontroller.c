@@ -45,8 +45,8 @@ void fan_stop()
 
 double fan_calculate_power()
 {
-    // Map PWM value to power. At FAN_PWM_MAX_DUTY, power is P= VI = (12V * 0.25A) = 3W.
-    return ((double)(TA0CCR2 - FAN_PWM_MIN_DUTY) * 3) / (FAN_PWM_MAX_DUTY - FAN_PWM_MIN_DUTY);
+    // Map PWM value to power. At FAN_PWM_MAX_DUTY, power is P= VI = (12V * 0.25A) = 3000mW.
+    return ((double)(TA0CCR2 - FAN_PWM_MIN_DUTY) * 3000) / (FAN_PWM_MAX_DUTY - FAN_PWM_MIN_DUTY);
 }
 
 void fan_speed_to_power_LED()
