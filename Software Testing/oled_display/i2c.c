@@ -17,7 +17,7 @@ void i2c_init(void) {
     UCB0BR0   = 10;                                                     // fSCL = SMCLK/10 = ~100kHz with SMCLK=1MHz
     UCB0BR1   = 0;                         
     UCB0CTL1 &= ~UCSWRST;                                               // Clear SW reset, resume operation
-    UCB0IE |= UCTXIE2;                                                 // Enable TX interrupt
+    UCB0IE |= UCTXIE0;                                                 // Enable TX interrupt
 
 } // end i2c_init
 
@@ -47,7 +47,7 @@ switch(__even_in_range(UCB0IV,0x1E))
             else
             {
                     UCB0CTL1 |= UCTXSTP;               // I2C stop condition
-                    UCB0IFG &= ~UCTXIFG2;
+                    UCB0IFG &= ~UCTXIFG0;
                     __bic_SR_register_on_exit(CPUOFF);     // Exit LPM0
 
             }
