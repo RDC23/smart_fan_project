@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<infocenter_data version="1.0">
+  <iar_name>GPIO</iar_name>
+  <iar_description>Example project using GPIO</iar_description>
+
+  <iar_curdir>$CUR_DIR$</iar_curdir>
+  <iar_info_path>$TOOLKIT_DIR$/examples/driverlib/doc/MSP430FR2xx_4xx/html/group__gpio__api.html</iar_info_path>
+</infocenter_data>
