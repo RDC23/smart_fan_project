@@ -11,7 +11,7 @@ Warning[w6]: Type conflict for external/entry "strlen", in module adc against ex
 #                                                                              #
 #      IAR Universal Linker V6.5.4.100                                         #
 #                                                                              #
-#           Link time     =  06/Mar/2024  13:09:53                             #
+#           Link time     =  06/Mar/2024  14:05:17                             #
 #           Target CPU    =  MSP430                                            #
 #           List file     =  "C:\Users\qsb23163\Desktop\examples-SCREEN\Driver #
 #                            Lib Examples\SCREEN\gpio\Debug\List\gpio_ex4_writ #
@@ -23,7 +23,7 @@ Warning[w6]: Type conflict for external/entry "strlen", in module adc against ex
 #                            UBROF version 10.0.6                              #
 #                            Using library modules for C-SPY (-rt)             #
 #           Command line  =  -f                                                #
-#                            C:\Users\qsb23163\AppData\Local\Temp\EWAD86.tmp   #
+#                            C:\Users\qsb23163\AppData\Local\Temp\EW6898.tmp   #
 #                            ("C:\Users\qsb23163\Desktop\examples-SCREEN\Drive #
 #                            rLib Examples\SCREEN\gpio\Debug\Obj\adc.r43"      #
 #                            "C:\Users\qsb23163\Desktop\examples-SCREEN\Driver #
@@ -129,7 +129,7 @@ Warning[w6]: Type conflict for external/entry "strlen", in module adc against ex
                 *                                      *
                 ****************************************
 
-       Program entry at :           C68A  Relocatable, from module : ?cstart
+       Program entry at :           C658  Relocatable, from module : ?cstart
 
 
 
@@ -206,72 +206,32 @@ DATA16_C
   Segment part 3.             Intra module refs:   main
     -------------------------------------------------------------------------
 DATA16_C
-  Relative segment, address: C45D - C468 (0xc bytes), align: 0
+  Relative segment, address: C45D - C461 (0x5 bytes), align: 0
   Segment part 4.             Intra module refs:   main
     -------------------------------------------------------------------------
 DATA16_C
-  Relative segment, address: C469 - C46F (0x7 bytes), align: 0
+  Relative segment, address: C462 - C469 (0x8 bytes), align: 0
   Segment part 5.             Intra module refs:   main
     -------------------------------------------------------------------------
 DATA16_C
-  Relative segment, address: C470 - C476 (0x7 bytes), align: 0
+  Relative segment, address: C46A - C470 (0x7 bytes), align: 0
   Segment part 6.             Intra module refs:   main
     -------------------------------------------------------------------------
 DATA16_C
-  Relative segment, address: C477 - C47D (0x7 bytes), align: 0
+  Relative segment, address: C471 - C476 (0x6 bytes), align: 0
   Segment part 7.             Intra module refs:   main
     -------------------------------------------------------------------------
 DATA16_C
-  Relative segment, address: C47E - C484 (0x7 bytes), align: 0
-  Segment part 8.             Intra module refs:   main
-    -------------------------------------------------------------------------
-DATA16_C
-  Relative segment, address: C485 - C48B (0x7 bytes), align: 0
-  Segment part 9.             Intra module refs:   main
-    -------------------------------------------------------------------------
-DATA16_C
-  Relative segment, address: C48C - C492 (0x7 bytes), align: 0
-  Segment part 10.            Intra module refs:   main
-    -------------------------------------------------------------------------
-DATA16_C
-  Relative segment, address: C493 - C495 (0x3 bytes), align: 0
-  Segment part 11.            Intra module refs:   main
-    -------------------------------------------------------------------------
-DATA16_C
-  Relative segment, address: C496 - C498 (0x3 bytes), align: 0
-  Segment part 12.            Intra module refs:   main
-    -------------------------------------------------------------------------
-DATA16_C
-  Relative segment, address: C499 - C49B (0x3 bytes), align: 0
-  Segment part 13.            Intra module refs:   main
-    -------------------------------------------------------------------------
-DATA16_C
-  Relative segment, address: C49C - C49E (0x3 bytes), align: 0
-  Segment part 14.            Intra module refs:   main
-    -------------------------------------------------------------------------
-DATA16_C
-  Relative segment, address: C49F - C4A1 (0x3 bytes), align: 0
-  Segment part 15.            Intra module refs:   main
-    -------------------------------------------------------------------------
-DATA16_C
-  Relative segment, address: C4A2 - C4A4 (0x3 bytes), align: 0
-  Segment part 16.            Intra module refs:   main
-    -------------------------------------------------------------------------
-DATA16_C
-  Relative segment, address: C4A5 - C4A8 (0x4 bytes), align: 0
-  Segment part 17.            Intra module refs:   main
-    -------------------------------------------------------------------------
-DATA16_C
-  Relative segment, address: C4A9 - C688 (0x1e0 bytes), align: 0
-  Segment part 25.            Intra module refs:   ssd1306_printText
+  Relative segment, address: C477 - C656 (0x1e0 bytes), align: 0
+  Segment part 15.            Intra module refs:   ssd1306_printText
                                                    ssd1306_printTextBlock
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           font_5x7n               C4A9 
+           font_5x7n               C477 
     -------------------------------------------------------------------------
 DATA16_Z
   Relative segment, address: 2000 - 2010 (0x11 bytes), align: 0
-  Segment part 27.            Intra module refs:   ?Subroutine88
+  Segment part 17.            Intra module refs:   ?Subroutine88
                                                    ssd1306_clearDisplay
                                                    ssd1306_printText
                                                    ssd1306_printTextBlock
@@ -280,315 +240,303 @@ DATA16_Z
            buffer                  2000 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C6A2 - C6C5 (0x24 bytes), align: 1
-  Segment part 275.           Intra module refs:   Segment part 281
+  Relative segment, address: C670 - C695 (0x26 bytes), align: 1
+  Segment part 265.           Intra module refs:   ?Subroutine82
+                                                   Segment part 274
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Write_IIC_Byte          C6A2 
+           Write_IIC_Byte          C670 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C6C6 - C6D7 (0x12 bytes), align: 1
-  Segment part 276.           Intra module refs:   ?Subroutine88
+  Relative segment, address: C696 - C6A7 (0x12 bytes), align: 1
+  Segment part 266.           Intra module refs:   ?Subroutine97
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           OLED_IIC_Start          C696 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C6A8 - C6AF (0x8 bytes), align: 1
+  Segment part 267.           Intra module refs:   OLED_IIC_Start
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           ?Subroutine18           C6A8 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C6B0 - C6B7 (0x8 bytes), align: 1
+  Segment part 268.           Intra module refs:   ?Subroutine88
                                                    ssd1306_clearDisplay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Write_IIC_Data          C6C6 
+           Write_IIC_Data          C6B0 
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C6D8 - C6E5 (0xe bytes), align: 1
-  Segment part 277.           Intra module refs:   Write_IIC_Command
+  Relative segment, address: C6B8 - C6C5 (0xe bytes), align: 1
+  Segment part 269.           Intra module refs:   Write_IIC_Command
                                                    Write_IIC_Data
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine0            C6D8 
+           ?Subroutine0            C6B8 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C6E6 - C6EB (0x6 bytes), align: 1
-  Segment part 278.           Intra module refs:   Write_IIC_Command
-           ENTRY                   ADDRESS         REF BY
-           =====                   =======         ======
-           OLED_IIC_Start          C6E6 
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: C6EC - C6FD (0x12 bytes), align: 1
-  Segment part 279.           Intra module refs:   OLED_IIC_Start
-                                                   Write_IIC_Data
+  Relative segment, address: C6C6 - C6CB (0x6 bytes), align: 1
+  Segment part 270.           Intra module refs:   ?Subroutine0
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine82           C6EC 
+           ?Subroutine82           C6C6 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C6FE - C701 (0x4 bytes), align: 1
-  Segment part 280.           Intra module refs:   Write_IIC_Command
-                                                   Write_IIC_Data
-           LOCAL                   ADDRESS         
-           =====                   =======         
-           ?Subroutine81           C6FE 
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: C702 - C705 (0x4 bytes), align: 1
-  Segment part 281.           Intra module refs:   ?Subroutine0
-                                                   ?Subroutine81
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: C706 - C709 (0x4 bytes), align: 1
-  Segment part 282.           Intra module refs:   Segment part 281
-                                                   Write_IIC_Byte
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: C70A - C711 (0x8 bytes), align: 1
-  Segment part 283.           Intra module refs:   ?Subroutine81
-                                                   OLED_IIC_Start
-                                                   Segment part 281
-                                                   Segment part 282
-                                                   Write_IIC_Byte
-                                                   Write_IIC_Data
-                                                   main
-           LOCAL                   ADDRESS         
-           =====                   =======         
-           ?Subroutine106          C70A 
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: C712 - C721 (0x10 bytes), align: 1
-  Segment part 284.           Intra module refs:   ?Subroutine100
+  Relative segment, address: C6CC - C6D5 (0xa bytes), align: 1
+  Segment part 271.           Intra module refs:   ?Subroutine101
                                                    ?Subroutine102
                                                    ?Subroutine103
-                                                   ?Subroutine105
                                                    ?Subroutine15
                                                    ?Subroutine37
-                                                   ?Subroutine69
+                                                   ?Subroutine68
                                                    ?Subroutine83
                                                    ?Subroutine84
                                                    ?Subroutine85
                                                    ?Subroutine86
                                                    ?Subroutine87
                                                    ?Subroutine89
+                                                   ?Subroutine99
+                                                   Segment part 357
+                                                   Segment part 358
                                                    Segment part 368
-                                                   Segment part 369
-                                                   Segment part 379
                                                    ssd1306_clearDisplay
                                                    ssd1306_init
                                                    ssd1306_setPosition
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Write_IIC_Command       C712 
+           Write_IIC_Command       C6CC 
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C722 - C745 (0x24 bytes), align: 1
-  Segment part 285.           Intra module refs:   ssd1306_printText
-           ENTRY                   ADDRESS         REF BY
-           =====                   =======         ======
-           ssd1306_setPosition     C722 
-               calls direct
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: C746 - C74D (0x8 bytes), align: 1
-  Segment part 286.           Intra module refs:   ssd1306_setPosition
+  Relative segment, address: C6D6 - C6D7 (0x2 bytes), align: 1
+  Segment part 272.           Intra module refs:   Write_IIC_Command
+                                                   Write_IIC_Data
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine15           C746 
+           ?Subroutine78           C6D6 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C74E - C7BB (0x6e bytes), align: 1
-  Segment part 287.           Intra module refs:   ?Subroutine68
-                                                   main
+  Relative segment, address: C6D8 - C6DF (0x8 bytes), align: 1
+  Segment part 273.           Intra module refs:   ?Subroutine78
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           ?Subroutine97           C6D8 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C6E0 - C6E3 (0x4 bytes), align: 1
+  Segment part 274.           Intra module refs:   ?Subroutine97
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C6E4 - C6F1 (0xe bytes), align: 1
+  Segment part 275.           Intra module refs:   ?Subroutine82
+                                                   Segment part 274
+                                                   Write_IIC_Byte
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C6F2 - C715 (0x24 bytes), align: 1
+  Segment part 276.           Intra module refs:   ssd1306_printText
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ssd1306_setPosition     C6F2 
+               calls direct
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C716 - C71D (0x8 bytes), align: 1
+  Segment part 277.           Intra module refs:   ssd1306_setPosition
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           ?Subroutine15           C716 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C71E - C78B (0x6e bytes), align: 1
+  Segment part 278.           Intra module refs:   ?Subroutine71
                                                    ssd1306_printTextBlock
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ssd1306_printText       C74E 
+           ssd1306_printText       C71E 
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C7BC - C7BF (0x4 bytes), align: 1
-  Segment part 288.           Intra module refs:   ssd1306_printText
+  Relative segment, address: C78C - C78F (0x4 bytes), align: 1
+  Segment part 279.           Intra module refs:   ssd1306_printText
                                                    ssd1306_setPosition
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine56           C7BC 
+           ?Subroutine56           C78C 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C7C0 - C7C7 (0x8 bytes), align: 1
-  Segment part 289.           Intra module refs:   ?Subroutine53
+  Relative segment, address: C790 - C797 (0x8 bytes), align: 1
+  Segment part 280.           Intra module refs:   ?Subroutine53
                                                    ?Subroutine56
                                                    ssd1306_clearDisplay
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine102          C7C0 
+           ?Subroutine101          C790 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C7C8 - C88F (0xc8 bytes), align: 1
-  Segment part 290.           Intra module refs:   main
+  Relative segment, address: C798 - C85F (0xc8 bytes), align: 1
+  Segment part 281.           Intra module refs:   main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            ssd1306_printTextBlock
-                                   C7C8 
+                                   C798 
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C890 - C8CB (0x3c bytes), align: 1
-  Segment part 291.           Intra module refs:   ssd1306_printText
+  Relative segment, address: C860 - C89B (0x3c bytes), align: 1
+  Segment part 282.           Intra module refs:   ssd1306_printText
                                                    ssd1306_printTextBlock
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine88           C890 
+           ?Subroutine88           C860 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C8CC - C8D9 (0xe bytes), align: 1
-  Segment part 292.           Intra module refs:   ssd1306_printTextBlock
+  Relative segment, address: C89C - C8A9 (0xe bytes), align: 1
+  Segment part 283.           Intra module refs:   ssd1306_printTextBlock
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine53           C8CC 
+           ?Subroutine53           C89C 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C8DA - C8E5 (0xc bytes), align: 1
-  Segment part 293.           Intra module refs:   ?Subroutine53
+  Relative segment, address: C8AA - C8B5 (0xc bytes), align: 1
+  Segment part 284.           Intra module refs:   ?Subroutine53
                                                    ssd1306_printText
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine100          C8DA 
+           ?Subroutine99           C8AA 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C8E6 - C937 (0x52 bytes), align: 1
-  Segment part 294.           Intra module refs:   main
+  Relative segment, address: C8B6 - C907 (0x52 bytes), align: 1
+  Segment part 285.           Intra module refs:   main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ssd1306_clearDisplay    C8E6 
+           ssd1306_clearDisplay    C8B6 
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C938 - C939 (0x2 bytes), align: 1
-  Segment part 295.           Intra module refs:   ?Subroutine53
+  Relative segment, address: C908 - C909 (0x2 bytes), align: 1
+  Segment part 286.           Intra module refs:   ?Subroutine53
                                                    ssd1306_clearDisplay
                                                    ssd1306_printText
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine94           C938 
+           ?Subroutine94           C908 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C93A - C94D (0x14 bytes), align: 1
-  Segment part 296.           Intra module refs:   ?Subroutine94
+  Relative segment, address: C90A - C91D (0x14 bytes), align: 1
+  Segment part 287.           Intra module refs:   ?Subroutine94
                                                    ssd1306_setPosition
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine105          C93A 
+           ?Subroutine103          C90A 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C94E - C9B1 (0x64 bytes), align: 1
-  Segment part 297.           Intra module refs:   main
+  Relative segment, address: C91E - C981 (0x64 bytes), align: 1
+  Segment part 288.           Intra module refs:   main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ssd1306_init            C94E 
+           ssd1306_init            C91E 
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C9B2 - C9BD (0xc bytes), align: 1
-  Segment part 298.           Intra module refs:   ssd1306_init
+  Relative segment, address: C982 - C98D (0xc bytes), align: 1
+  Segment part 289.           Intra module refs:   ssd1306_init
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine37           C9B2 
+           ?Subroutine37           C982 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C9BE - CAC7 (0x10a bytes), align: 1
-  Segment part 299.
+  Relative segment, address: C98E - CA19 (0x8c bytes), align: 1
+  Segment part 290.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           main                    C9BE            Segment part 27 (?cstart)
+           main                    C98E            Segment part 27 (?cstart)
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: CAC8 - CACD (0x6 bytes), align: 1
-  Segment part 300.           Intra module refs:   main
+  Relative segment, address: CA1A - CA1F (0x6 bytes), align: 1
+  Segment part 291.           Intra module refs:   main
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine68           CAC8 
+           ?Subroutine71           CA1A 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: CACE - CAD5 (0x8 bytes), align: 1
-  Segment part 352.           Intra module refs:   ?Subroutine82
-                                                   ?Subroutine99
-                                                   Segment part 282
+  Relative segment, address: CA20 - CA33 (0x14 bytes), align: 1
+  Segment part 335.           Intra module refs:   ?Subroutine0
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: CA34 - CA3B (0x8 bytes), align: 1
+  Segment part 356.           Intra module refs:   ssd1306_init
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine104          CACE 
+           ?Subroutine68           CA34 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: CAD6 - CAE7 (0x12 bytes), align: 1
-  Segment part 363.           Intra module refs:   ?Subroutine0
-           LOCAL                   ADDRESS         
-           =====                   =======         
-           ?Subroutine99           CAD6 
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: CAE8 - CAEF (0x8 bytes), align: 1
-  Segment part 367.           Intra module refs:   ssd1306_init
-           LOCAL                   ADDRESS         
-           =====                   =======         
-           ?Subroutine69           CAE8 
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: CAF0 - CAF3 (0x4 bytes), align: 1
-  Segment part 368.           Intra module refs:   ?Subroutine69
+  Relative segment, address: CA3C - CA3F (0x4 bytes), align: 1
+  Segment part 357.           Intra module refs:   ?Subroutine68
                                                    ssd1306_init
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: CAF4 - CAF9 (0x6 bytes), align: 1
-  Segment part 369.           Intra module refs:   Segment part 368
+  Relative segment, address: CA40 - CA45 (0x6 bytes), align: 1
+  Segment part 358.           Intra module refs:   Segment part 357
                                                    ssd1306_clearDisplay
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: CAFA - CB07 (0xe bytes), align: 1
-  Segment part 372.           Intra module refs:   ssd1306_init
+  Relative segment, address: CA46 - CA53 (0xe bytes), align: 1
+  Segment part 361.           Intra module refs:   ssd1306_init
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine89           CAFA 
+           ?Subroutine89           CA46 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: CB08 - CB0F (0x8 bytes), align: 1
-  Segment part 373.           Intra module refs:   ssd1306_init
+  Relative segment, address: CA54 - CA5B (0x8 bytes), align: 1
+  Segment part 362.           Intra module refs:   ssd1306_init
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine87           CB08 
+           ?Subroutine87           CA54 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: CB10 - CB1D (0xe bytes), align: 1
-  Segment part 374.           Intra module refs:   ?Subroutine87
+  Relative segment, address: CA5C - CA69 (0xe bytes), align: 1
+  Segment part 363.           Intra module refs:   ?Subroutine87
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine103          CB10 
+           ?Subroutine102          CA5C 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: CB1E - CB2F (0x12 bytes), align: 1
-  Segment part 375.           Intra module refs:   ssd1306_init
+  Relative segment, address: CA6A - CA7B (0x12 bytes), align: 1
+  Segment part 364.           Intra module refs:   ssd1306_init
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine86           CB1E 
+           ?Subroutine86           CA6A 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: CB30 - CB41 (0x12 bytes), align: 1
-  Segment part 376.           Intra module refs:   ssd1306_init
+  Relative segment, address: CA7C - CA8D (0x12 bytes), align: 1
+  Segment part 365.           Intra module refs:   ssd1306_init
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine85           CB30 
+           ?Subroutine85           CA7C 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: CB42 - CB55 (0x14 bytes), align: 1
-  Segment part 377.           Intra module refs:   ssd1306_init
+  Relative segment, address: CA8E - CAA1 (0x14 bytes), align: 1
+  Segment part 366.           Intra module refs:   ssd1306_init
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine84           CB42 
+           ?Subroutine84           CA8E 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: CB56 - CB59 (0x4 bytes), align: 1
-  Segment part 378.           Intra module refs:   ssd1306_init
+  Relative segment, address: CAA2 - CAA5 (0x4 bytes), align: 1
+  Segment part 367.           Intra module refs:   ssd1306_init
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?Subroutine83           CB56 
+           ?Subroutine83           CAA2 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: CB5A - CB61 (0x8 bytes), align: 1
-  Segment part 379.           Intra module refs:   ?Subroutine83
+  Relative segment, address: CAA6 - CAAD (0x8 bytes), align: 1
+  Segment part 368.           Intra module refs:   ?Subroutine83
                                                    ssd1306_init
 
     *************************************************************************
@@ -668,11 +616,11 @@ DATA16_Z
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: CB9E - CB9F (0x2 bytes), align: 1
+  Relative segment, address: CAEA - CAEB (0x2 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __DebugBreak            CB9E            __exit (?__exit)
+           __DebugBreak            CAEA            __exit (?__exit)
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?__exit
@@ -680,11 +628,11 @@ DATA16_Z
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: CB62 - CB75 (0x14 bytes), align: 1
+  Relative segment, address: CAAE - CAC1 (0x14 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __exit                  CB62            Segment part 6 (?_exit)
+           __exit                  CAAE            Segment part 6 (?_exit)
                                                    _exit (?_exit)
                calls direct
 
@@ -694,14 +642,14 @@ DATA16_Z
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: CB9A, align: 1
+  Relative segment, address: CAE6, align: 1
   Segment part 0.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           _exit                   CB9A            exit (?exit)
+           _exit                   CAE6            exit (?exit)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: CB9A - CB9D (0x4 bytes), align: 1
+  Relative segment, address: CAE6 - CAE9 (0x4 bytes), align: 1
   Segment part 6.             Intra module refs:   _exit
 
     -------------------------------------------------------------------------
@@ -722,7 +670,7 @@ CODE_I
   Segment part 5.
     -------------------------------------------------------------------------
 CODE_ID
-  Relative segment, address: C6A2, align: 1
+  Relative segment, address: C670, align: 1
   Segment part 6.
     -------------------------------------------------------------------------
 DATA20_Z
@@ -734,11 +682,11 @@ DATA20_I
   Segment part 8.
     -------------------------------------------------------------------------
 DATA20_ID
-  Relative segment, address: C68A, align: 1
+  Relative segment, address: C658, align: 1
   Segment part 9.
     -------------------------------------------------------------------------
 DATA20_C
-  Relative segment, address: C68A, align: 1
+  Relative segment, address: C658, align: 1
   Segment part 10.
     -------------------------------------------------------------------------
 DATA20_N
@@ -746,31 +694,31 @@ DATA20_N
   Segment part 12.
     -------------------------------------------------------------------------
 CSTART
-  Relative segment, address: C68A - C68D (0x4 bytes), align: 1
+  Relative segment, address: C658 - C65B (0x4 bytes), align: 1
   Segment part 15.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __program_start         C68A            ?reset_vector (?reset_vector)
+           __program_start         C658            ?reset_vector (?reset_vector)
                                                    Absolute parts (?ABS_ENTRY_MOD)
-           ?cstart_begin           C68A 
+           ?cstart_begin           C658 
     -------------------------------------------------------------------------
 CSTART
-  Relative segment, address: C68E - C699 (0xc bytes), align: 1
+  Relative segment, address: C65C - C667 (0xc bytes), align: 1
   Segment part 20.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?cstart_init_zero       C68E            buffer (adc)
+           ?cstart_init_zero       C65C            buffer (adc)
     -------------------------------------------------------------------------
 CSTART
-  Relative segment, address: C69A - C6A1 (0x8 bytes), align: 1
+  Relative segment, address: C668 - C66F (0x8 bytes), align: 1
   Segment part 27.            Intra module refs:   Segment part 15
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?cstart_call_main       C69A 
-           ?cstart_end             C6A2 
+           ?cstart_call_main       C668 
+           ?cstart_end             C670 
     -------------------------------------------------------------------------
 CODE_ID
-  Relative segment, address: C6A2, align: 1
+  Relative segment, address: C670, align: 1
   Segment part 28.            Intra module refs:   Segment part 5
 
     -------------------------------------------------------------------------
@@ -791,11 +739,11 @@ RESET
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: CB96 - CB99 (0x4 bytes), align: 1
+  Relative segment, address: CAE2 - CAE5 (0x4 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           exit                    CB96            Segment part 27 (?cstart)
+           exit                    CAE2            Segment part 27 (?cstart)
                calls direct
 
     -------------------------------------------------------------------------
@@ -804,11 +752,11 @@ RESET
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: CB76 - CB85 (0x10 bytes), align: 1
+  Relative segment, address: CAC2 - CAD1 (0x10 bytes), align: 1
   Segment part 0.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?CopyMemoryBytes        CB76            main (adc)
+           ?CopyMemoryBytes        CAC2            main (adc)
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?memzero
@@ -816,11 +764,11 @@ RESET
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: CB86 - CB95 (0x10 bytes), align: 1
+  Relative segment, address: CAD2 - CAE1 (0x10 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __data16_memzero        CB86            ?cstart_init_zero (?cstart)
+           __data16_memzero        CAD2            ?cstart_init_zero (?cstart)
 
 
 
@@ -842,13 +790,13 @@ DATA20_N                                  2012                       rel    1
 DATA20_I                                  2012                       rel    1
 CODE_I                                    2012                       rel    1
 CSTACK                                 2760 - 27FF              A0   rel    1
-DATA16_C                               C400 - C688             289   rel    0
-DATA20_ID                                 C68A                       rel    1
-DATA20_C                                  C68A                       rel    1
-CSTART                                 C68A - C6A1              18   rel    1
-CODE_ID                                   C6A2                       rel    1
-ISR_CODE                                  C6A2                       dse    0
-<CODE> 1                               C6A2 - CB9F             4FE   rel    1
+DATA16_C                               C400 - C656             257   rel    0
+DATA20_ID                                 C658                       rel    1
+DATA20_C                                  C658                       rel    1
+CSTART                                 C658 - C66F              18   rel    1
+CODE_ID                                   C670                       rel    1
+ISR_CODE                                  C670                       dse    0
+<CODE> 1                               C670 - CAEB             47C   rel    1
 RESET                                  FFFE - FFFF               2   rel    1
 
                 ****************************************
@@ -857,9 +805,9 @@ RESET                                  FFFE - FFFF               2   rel    1
                 *                                      *
                 ****************************************
 
- 1 304 bytes of CODE  memory
+ 1 174 bytes of CODE  memory
    177 bytes of DATA  memory (+ 2 absolute )
-   649 bytes of CONST memory
+   599 bytes of CONST memory
 
 Errors: none
 Warnings: 1
