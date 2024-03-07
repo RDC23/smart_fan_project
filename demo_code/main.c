@@ -18,6 +18,7 @@
 #include "ultrasonic.h"
 #include "thermistor.h"
 #include "pir.h"
+#include "oled.h"
 
 // DEFINES
 #define MODE_BUTTON_PIN BIT6 // P2.6 (On launchpad)
@@ -107,6 +108,7 @@ int main(void)
     PMM_unlockLPM5();
 
     // Setup Peripherals
+    
     init_thermistor();
     pir_init();
     ultrasonic_setup_pins();
@@ -115,7 +117,20 @@ int main(void)
     servo_init();
     servo_to_angle(MID);
     Init_LCD();
-    displayFanMode(current_mode);
+    displayFanMode(current_mode);   
+    OLED12864_Configuration();
+    ssd1306_init();             // Initialize SSD1306 OLED
+    ssd1306_clearDisplay();     // Clear OLED display
+    
+    // Screen debug test
+    char txtBlock[93] = "This is a very large some may say huge message to test the functionality of the screen";
+    ssd1306_printTextBlock(0, 1, txtBlock);
+    __delay_cycles(10000000);
+    ssd1306_clearDisplay();
+    ssd1306_printText(0, 1, "ROSS");
+    ssd1306_printText(0, 2, "RUIHANG");
+    ssd1306_printText(0, 3, "FRASER");
+    ssd1306_printText(0, 4, "UWAIS");
 
     // Enable global interrupts
     __enable_interrupt();
