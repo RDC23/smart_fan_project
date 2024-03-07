@@ -10,6 +10,7 @@
 #include <driverlib.h>
 #include <math.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 // USER LIBRARIES
 #include "hal_LCD.h"
@@ -119,19 +120,9 @@ int main(void)
     Init_LCD();
     displayFanMode(current_mode);   
     OLED12864_Configuration();
-    ssd1306_init();             // Initialize SSD1306 OLED
-    ssd1306_clearDisplay();     // Clear OLED display
-    
-    // Screen debug test
-    char txtBlock[93] = "This is a very large some may say huge message to test the functionality of the screen";
-    ssd1306_printTextBlock(0, 1, txtBlock);
-    __delay_cycles(10000000);
+    ssd1306_init();       
     ssd1306_clearDisplay();
-    ssd1306_printText(0, 1, "ROSS");
-    ssd1306_printText(0, 2, "RUIHANG");
-    ssd1306_printText(0, 3, "FRASER");
-    ssd1306_printText(0, 4, "UWAIS");
-
+    
     // Enable global interrupts
     __enable_interrupt();
 
@@ -161,16 +152,40 @@ int main(void)
             fan_temp_to_speed(current_temperature);
             fan_speed_to_power_LED();
 
-            // 5) Update the fan power display
+            // 5) Update the diplay with fan power, and speed information
+            
+            // Power display update
             fan_power = fan_calculate_power();
-
-            if (show_power)
-            {
-                powerPrint(fan_power);
-                show_power = false;
-                __delay_cycles(1000000);
-            }
-
+            char power_buffer[17];
+            memset(power_buffer, 0, sizeof(power_buffer));
+            int milliwatts = (int)(fan_power);
+            sprintf(power_buffer, "Power = %d mW", milliwatts);
+            ssd1306_printText(0, 1, power_buffer);
+            
+            // Speed display update
+            char speed_buffer[17];
+            memset(speed_buffer, 0, sizeof(speed_buffer));
+            sprintf(speed_buffer, "Speed = %d %", fan_speed);
+            ssd1306_printText(0, 3, speed_buffer);
+            
+            // Efficiency display update    
+            //char efficiency_buffer[17];            
+            //if (efficiency == LOW)
+            //{
+            // sprintf(efficiency_buffer, "n = Low");                       
+            // ssd1306_printTextBlock(0, 4, efficiency_buffer);              
+            //}
+            //else if (efficiency == MED)
+            //{
+            //  sprintf(efficiency_buffer, "n = Mid");                       
+            //  ssd1306_printTextBlock(0, 4, efficiency_buffer);                  
+            //}       
+            //else
+            //{
+            //  sprintf(efficiency_buffer, "n = High");                       
+            //  ssd1306_printTextBlock(0, 4, efficiency_buffer);                    
+           // }
+                                
             // 6) Handle mode defined servo actions
             switch (current_mode)
             {
@@ -237,6 +252,18 @@ int main(void)
             fan_power = 0;
             fan_speed_to_power_LED();
             displayFanMode(OFF);
+            
+            // Power display update          
+            char power_buffer[17];
+            memset(power_buffer, 0, sizeof(power_buffer));
+            sprintf(power_buffer, "Power = %d mW", fan_power);
+            ssd1306_printText(0, 1, power_buffer);
+            
+            // Speed display update
+            char speed_buffer[17];
+            memset(speed_buffer, 0, sizeof(speed_buffer));
+            sprintf(speed_buffer, "Speed = %d %", fan_speed);
+            ssd1306_printText(0, 3, speed_buffer);
         }
     }
     return 0;
@@ -267,8 +294,7 @@ __interrupt void P1_ISR(void)
     // On/off toggle button
     case P1IV_P1IFG2:
         BUTTON_DEBOUNCE();
-        //fan_on = !fan_on;
-        show_power = !show_power;
+        fan_on = !fan_on;
         P1IFG &= ~ON_OFF_BUTTON;
         break;
     }

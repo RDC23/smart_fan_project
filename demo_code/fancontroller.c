@@ -6,6 +6,7 @@
 #include "fancontroller.h"
 
 int fan_speed = 100;
+Efficiency_t efficiency = LOW;
 
 void fan_init()
 {
@@ -58,15 +59,18 @@ void fan_speed_to_power_LED()
     {
         P5OUT |= LOW_POWER_LED;
         P5OUT &= ~(MED_POWER_LED | HIGH_POWER_LED);
+        efficiency = HIGH;
     }
     else if (fan_speed >= LOW_SPEED_BOUNDARY && fan_speed < HIGH_SPEED_BOUNDARY)
     {
         P5OUT |= MED_POWER_LED;
         P5OUT &= ~(HIGH_POWER_LED | LOW_POWER_LED);
+        efficiency = MED;
     }
     else
     {
         P5OUT |= HIGH_POWER_LED;
         P5OUT &= ~(MED_POWER_LED | LOW_POWER_LED);
+        efficiency = LOW;
     }
 }

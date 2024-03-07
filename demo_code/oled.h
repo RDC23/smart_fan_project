@@ -22,10 +22,10 @@ typedef unsigned short int u16;
 typedef unsigned int u32;
 
 // Pin configuration for I2C SCL and SDA lines
-#define OLED_SCLK_Set()  GPIO_setOutputHighOnPin(GPIO_PORT_P1,GPIO_PIN4)
-#define OLED_SCLK_Clr()  GPIO_setOutputLowOnPin(GPIO_PORT_P1,GPIO_PIN4)
-#define OLED_SDIN_Set()  GPIO_setOutputHighOnPin(GPIO_PORT_P1,GPIO_PIN5)
-#define OLED_SDIN_Clr()  GPIO_setOutputLowOnPin(GPIO_PORT_P1,GPIO_PIN5)
+#define OLED_SCLK_Set()  GPIO_setOutputHighOnPin(GPIO_PORT_P1,GPIO_PIN1) // SCL
+#define OLED_SCLK_Clr()  GPIO_setOutputLowOnPin(GPIO_PORT_P1,GPIO_PIN1)  // SCL
+#define OLED_SDIN_Set()  GPIO_setOutputHighOnPin(GPIO_PORT_P1,GPIO_PIN0)  // SDA
+#define OLED_SDIN_Clr()  GPIO_setOutputLowOnPin(GPIO_PORT_P1,GPIO_PIN0) // SDA
 
 
 // Defines for screen modes and dimensions

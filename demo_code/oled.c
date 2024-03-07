@@ -224,10 +224,10 @@ void reverse(char *s) {
 
 // Setup GPIO pins for I2C support using bit-bashing
 void OLED12864_Configuration(void)
-{
-    GPIO_setAsOutputPin(GPIO_PORT_P1, GPIO_PIN5 + GPIO_PIN4); 
-    GPIO_setOutputLowOnPin(GPIO_PORT_P1, GPIO_PIN5); 
-    GPIO_setOutputLowOnPin(GPIO_PORT_P1, GPIO_PIN4); 
+{  
+    GPIO_setAsOutputPin(GPIO_PORT_P1, GPIO_PIN1 + GPIO_PIN0); 
+    GPIO_setOutputLowOnPin(GPIO_PORT_P1, GPIO_PIN1); 
+    GPIO_setOutputLowOnPin(GPIO_PORT_P1, GPIO_PIN0); 
 }
 
 // Setup SDA/ SCL for a new I2C transmission

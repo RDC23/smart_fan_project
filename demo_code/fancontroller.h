@@ -17,7 +17,17 @@
 #define FAN_MIN_TEMP 10
 #define FAN_MAX_TEMP 30
 
+typedef enum
+{
+    LOW = 0,
+    MED = 1,
+    HIGH = 2,
+} Efficiency_t;
+
+
 extern int fan_speed;
+
+extern Efficiency_t efficiency;
 
 void fan_init(); // Initializes GPIO P1.6 and Timer A0 CCR2 for PWM.
 
