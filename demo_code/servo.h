@@ -16,7 +16,7 @@
 #define PWM_MAX_DUTY 78   // Theoretically should be 64 - 2ms, 10% duty cycle
 #define SERVO_MIN_ANGLE 0 // degrees
 #define SERVO_MAX_ANGLE 180 // degrees
-#define SERVO_DELAY()(__delay_cycles(40000)) // Adjust delay cycles arg for delay time
+#define SERVO_DELAY()(__delay_cycles(30000)) // Adjust delay cycles arg for delay time
 
 extern int cur_servo_ang;  // Current servo angle accessible to main code
 extern bool going_cw; // Variable to track servo direction

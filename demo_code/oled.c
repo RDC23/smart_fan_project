@@ -7,6 +7,7 @@
 #include "oled.h"
 #include "gpio.h"
 #include "oledfont.h"
+#include <driverlib.h>
 
 // Globals
 H_U8 OLED_GRAM[8][128];
@@ -77,58 +78,68 @@ void ssd1306_command(unsigned char command) {
 // Loop through every row and column and clear the char (clearing the entire display)
 void ssd1306_clearDisplay(void) {
     ssd1306_setPosition(0, 0);
+
     unsigned char i;
-    for (i = 64; i > 0; i--) {                                          
+    for (i = 64; i > 0; i--) {
         unsigned char x;
         for(x = 16; x > 0; x--) {
             if (x == 1) {
-                buffer[x-1] = 0x40;
+                buffer[x-1] = 0x00;
             } else {
-                buffer[x-1] = 0x0;
+                buffer[x-1] = 0x00;
             }
         }
         i2c_write(SSD1306_I2C_ADDRESS, buffer, 17);
     }
-} 
+}
 
-// Set the print position on the screen 
+// Set the print position on the screen
 void ssd1306_setPosition(unsigned char column, unsigned char page) {
     if (column > 128) {
-        column = 0;                                                     
+        column = 0;
     }
     if (page > 8) {
-        page = 0;                                                       
+        page = 0;
     }
     ssd1306_command(SSD1306_COLUMNADDR);
-    ssd1306_command(column);                                            
-    ssd1306_command(SSD1306_LCDWIDTH-1);                                
+    ssd1306_command(column);
+    ssd1306_command(SSD1306_LCDWIDTH-1);
     ssd1306_command(SSD1306_PAGEADDR);
-    ssd1306_command(page);                                              
-    ssd1306_command(7);                                                 
-} 
+    ssd1306_command(page);
+    ssd1306_command(7);
+}
 
 // Print a single line of text to the display
 void ssd1306_printText(unsigned char x, unsigned char y, char *ptString) {
-
     ssd1306_setPosition(x, y);
 
     while (*ptString != '\0') {
-        buffer[0] = 0x40;
-        if ((x + 5) >= 127) {                                           
-            x = 0;                                                       
-            y++;                                                         
-            ssd1306_setPosition(x, y);                                   
-        }
+        buffer[0] = 0x00;
         unsigned char i;
-        for(i = 0; i < 5; i++) {
-            buffer[i+1] = font_5x7n[*ptString - ' '][i];
+        if (*ptString == ' ') {
+            // Write a space (blank) character
+            for(i = 0; i < 5; i++) {
+                buffer[i+1] = 0x00;
+            }
+            // Add a space between characters
+            buffer[6] = 0x00;
+            // Increment the position by 6 for the character width + spacing
+            x += 6;
+        } else {
+            // Write the character from the font
+            for(i = 0; i < 5; i++) {
+                buffer[i+1] = font_5x7n[*ptString - ' '][i];
+            }
+            // Add a space between characters
+            buffer[6] = 0x00;
+            // Increment the position by 6 for the character width + spacing
+            x += 6;
         }
-        buffer[6] = 0x0;
         i2c_write(SSD1306_I2C_ADDRESS, buffer, 7);
         ptString++;
-        x+=6;
     }
-} 
+}
+
 
 // Prints a text block (multiline support) to the display
 void ssd1306_printTextBlock(unsigned char x, unsigned char y, char *ptString) {

@@ -11,6 +11,7 @@
 #include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <string.h>
 
 // USER LIBRARIES
 #include "hal_LCD.h"
@@ -24,8 +25,9 @@
 // DEFINES
 #define MODE_BUTTON_PIN BIT6 // P2.6 (On launchpad)
 #define ON_OFF_BUTTON BIT2   // P1.2 (On launchpad)
-#define BUTTON_DEBOUNCE() (__delay_cycles(200000))
+#define BUTTON_DEBOUNCE() (__delay_cycles(100000))
 #define ANGLE_INCREMENT_SWEEP 5 // The number of degrees the servo should 'sweep' per iteration of main loop
+#define REFRESH_LIM 5 // Iterations of main code before OLED is updated
 
 // TYPEDEFS
 typedef enum
@@ -48,6 +50,7 @@ volatile double fan_power = 100;
 volatile bool fan_on = true;
 volatile bool needs_torque_boost = false;
 volatile int to_angle = 0;
+volatile int refresh_counter = 0;
 
 // HELPER FUNCTIONS
 void init_GPIO()
@@ -152,40 +155,56 @@ int main(void)
             fan_temp_to_speed(current_temperature);
             fan_speed_to_power_LED();
 
-            // 5) Update the diplay with fan power, and speed information
+            // 5) Update the OLED display
             
-            // Power display update
-            fan_power = fan_calculate_power();
-            char power_buffer[17];
-            memset(power_buffer, 0, sizeof(power_buffer));
-            int milliwatts = (int)(fan_power);
-            sprintf(power_buffer, "Power = %d mW", milliwatts);
-            ssd1306_printText(0, 1, power_buffer);
+            refresh_counter++;
+            if (refresh_counter == REFRESH_LIM)
+            {
+                refresh_counter = 0;
+
+                fan_power = fan_calculate_power();
+                char power_buffer[17];
+                int length = snprintf(power_buffer, sizeof(power_buffer), "Power = %d mW", (int)fan_power);
+                int i = 0;
+
+                for (i = length; i < sizeof(power_buffer); i++)
+                {
+                    power_buffer[i] = ' ';
+                }
+                power_buffer[sizeof(power_buffer)-1] = '\0';  // Ensure null termination
+                ssd1306_printText(0, 1, power_buffer);
+
+                // Speed display update
+                char speed_buffer[19];
+                int speed_buffer_usage = snprintf(speed_buffer, sizeof(speed_buffer), "Speed = %d percent", fan_speed);
+                int j = 0;
+                for (j = speed_buffer_usage; j < sizeof(speed_buffer); j++)
+                {
+                   speed_buffer[j] = ' ';
+                }
+                speed_buffer[sizeof(speed_buffer)-1] = '\0';  // Ensure null termination
+                ssd1306_printText(0, 3, speed_buffer);
+
+
+                // Efficiency display update
+                char n_buffer[17];
+
+                if (efficiency == LOW)
+                {
+                 sprintf(n_buffer, "Efficiency =  LOW");
+                }
+                else if (efficiency == MED)
+                {
+                  sprintf(n_buffer, "Efficiency =  MED");
+                }
+                else
+                {
+                 sprintf(n_buffer, "Efficiency = HIGH");
+                }
+                ssd1306_printText(0, 5, n_buffer);
+
+            }
             
-            // Speed display update
-            char speed_buffer[17];
-            memset(speed_buffer, 0, sizeof(speed_buffer));
-            sprintf(speed_buffer, "Speed = %d %", fan_speed);
-            ssd1306_printText(0, 3, speed_buffer);
-            
-            // Efficiency display update    
-            //char efficiency_buffer[17];            
-            //if (efficiency == LOW)
-            //{
-            // sprintf(efficiency_buffer, "n = Low");                       
-            // ssd1306_printTextBlock(0, 4, efficiency_buffer);              
-            //}
-            //else if (efficiency == MED)
-            //{
-            //  sprintf(efficiency_buffer, "n = Mid");                       
-            //  ssd1306_printTextBlock(0, 4, efficiency_buffer);                  
-            //}       
-            //else
-            //{
-            //  sprintf(efficiency_buffer, "n = High");                       
-            //  ssd1306_printTextBlock(0, 4, efficiency_buffer);                    
-           // }
-                                
             // 6) Handle mode defined servo actions
             switch (current_mode)
             {
@@ -244,26 +263,44 @@ int main(void)
                 break;
             }
         }
-        else
+
+        else // Delegating tasks to functions leads to poor responsiveness in the else clause
         {
             // Perform standby mode actions
             fan_stop();
             needs_torque_boost = true;
+            displayFanMode(OFF);
             fan_power = 0;
             fan_speed_to_power_LED();
-            displayFanMode(OFF);
-            
-            // Power display update          
+
+            // Power display update
             char power_buffer[17];
-            memset(power_buffer, 0, sizeof(power_buffer));
-            sprintf(power_buffer, "Power = %d mW", fan_power);
+            int length = snprintf(power_buffer, sizeof(power_buffer), "Power = %d mW", (int)fan_power);
+            int i = 0;
+
+            for (i = length; i < sizeof(power_buffer); i++)
+            {
+                power_buffer[i] = ' ';
+            }
+            power_buffer[sizeof(power_buffer)-1] = '\0';  // Ensure null termination
+
             ssd1306_printText(0, 1, power_buffer);
-            
+
             // Speed display update
-            char speed_buffer[17];
-            memset(speed_buffer, 0, sizeof(speed_buffer));
-            sprintf(speed_buffer, "Speed = %d %", fan_speed);
+            char speed_buffer[19];
+            int speed_buffer_usage = snprintf(speed_buffer, sizeof(speed_buffer), "Speed = %d percent", fan_speed);
+            int j = 0;
+            for (j = speed_buffer_usage; j < sizeof(speed_buffer); j++)
+            {
+              speed_buffer[j] = ' ';
+            }
+            speed_buffer[sizeof(speed_buffer)-1] = '\0';  // Ensure null termination
             ssd1306_printText(0, 3, speed_buffer);
+
+            // Efficiency display update
+           char n_buffer[17];
+           sprintf(n_buffer, "Efficiency = HIGH");
+           ssd1306_printText(0, 5, n_buffer);
         }
     }
     return 0;
