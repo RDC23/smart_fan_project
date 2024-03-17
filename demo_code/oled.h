@@ -66,15 +66,6 @@ typedef unsigned int u32;
 #define SSD1306_EXTERNALVCC             0x1
 #define SSD1306_SWITCHCAPVCC            0x2
 
-// Currently no scroll functionality, left for possible future use
-#define SSD1306_ACTIVATE_SCROLL                         0x2F
-#define SSD1306_DEACTIVATE_SCROLL                       0x2E
-#define SSD1306_SET_VERTICAL_SCROLL_AREA                0xA3
-#define SSD1306_RIGHT_HORIZONTAL_SCROLL                 0x26
-#define SSD1306_LEFT_HORIZONTAL_SCROLL                  0x27
-#define SSD1306_VERTICAL_AND_RIGHT_HORIZONTAL_SCROLL    0x29
-#define SSD1306_VERTICAL_AND_LEFT_HORIZONTAL_SCROLL     0x2A
-
 // SSD1306 OLED Prototype Definitions
 void ssd1306_init(void);
 void ssd1306_command(unsigned char);
