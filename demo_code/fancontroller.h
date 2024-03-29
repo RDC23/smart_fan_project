@@ -15,7 +15,7 @@
 #define FAN_PWM_MAX_DUTY 640   // Full speed fan
 #define FAN_PWM_MIN_DUTY 135   // Min speed fan (no stalling)
 #define FAN_MIN_TEMP 10
-#define FAN_MAX_TEMP 30
+#define FAN_MAX_TEMP 35
 
 typedef enum
 {
