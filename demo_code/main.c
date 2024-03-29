@@ -1,7 +1,7 @@
 // main.c
 // Author : Ross Cathcart
 // Module: Part of Smart Fan Project
-// Last update : 29/02/2024 - added logic to enable power output to be diplayed to the screen of MSP430
+// Last update : 29/03/2024 - added SDG message to screen at startup
 // This is the main code file to handle the business level logic and interact with components via 
 // the API's deveoped.
 
@@ -126,6 +126,17 @@ int main(void)
     ssd1306_init();       
     ssd1306_clearDisplay();
     
+    // Print a welcome message
+    char welcome_message_1[] = "SDG3 : GOOD HEALTH AND WELLBEING";
+    ssd1306_printText(0, 1, welcome_message_1);
+    char welcome_message_2[] = "------------------";
+        ssd1306_printText(0, 3, welcome_message_2);
+    char welcome_message_3[] = "  Ensure healthy   lives and promote well-being for all at all ages";
+    ssd1306_printText(0, 4, welcome_message_3);
+    __delay_cycles(10000000);
+
+    ssd1306_clearDisplay();
+
     // Enable global interrupts
     __enable_interrupt();
 

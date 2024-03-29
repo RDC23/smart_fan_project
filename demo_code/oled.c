@@ -66,7 +66,6 @@ void ssd1306_init(void) {
     ssd1306_command(0x40);
     ssd1306_command(SSD1306_DISPLAYALLON_RESUME);                       
     ssd1306_command(SSD1306_NORMALDISPLAY);                             
-    ssd1306_command(SSD1306_DEACTIVATE_SCROLL);
     ssd1306_command(SSD1306_DISPLAYON);                                 
 }
 
