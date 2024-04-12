@@ -27,7 +27,7 @@
 #define ON_OFF_BUTTON BIT2   // P1.2 (On launchpad)
 #define BUTTON_DEBOUNCE() (__delay_cycles(100000))
 #define ANGLE_INCREMENT_SWEEP 5 // The number of degrees the servo should 'sweep' per iteration of main loop
-#define REFRESH_LIM 5 // Iterations of main code before OLED is updated
+#define REFRESH_LIM 10 // Iterations of main code before OLED is updated
 
 // TYPEDEFS
 typedef enum
