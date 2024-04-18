@@ -53,8 +53,8 @@ double fan_calculate_power()
 
 void fan_speed_to_power_LED()
 {
-#define LOW_SPEED_BOUNDARY 33
-#define HIGH_SPEED_BOUNDARY 55
+#define LOW_SPEED_BOUNDARY 35
+#define HIGH_SPEED_BOUNDARY 50
 
     if (fan_speed < LOW_SPEED_BOUNDARY)
     {

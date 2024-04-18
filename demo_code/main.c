@@ -127,7 +127,7 @@ int main(void)
     
     init_thermistor();
     pir_init();
-    // ultrasonic_setup_pins();
+    ultrasonic_setup_pins();
     init_GPIO();
     servo_init();
     servo_to_angle(MID);
@@ -245,23 +245,23 @@ int main(void)
 
                 // Fire ultrasonic pulse to provide current distance measurement
 
-                // ultrasonic_fire_pulse();
-                // current_dist = ultrasonic_get_distance();
+                ultrasonic_fire_pulse();
+                current_dist = ultrasonic_get_distance();
 
                 // If a 'movement event' is detected, turn the servo to face the PIR
-                // if (movement_event(current_dist))
-                // {
-                //     servo_cycle_gradual(activated_direction);
-                //     // Update the last distance with the target position in the new servo frame
-                //     ultrasonic_fire_pulse();
-                //     last_measured_distance = ultrasonic_get_distance();
-                // }
-
-                if (movement_event_pir_only())
+                if (movement_event(current_dist))
                 {
-                    servo_cycle_gradual(activated_direction);
-                    __delay_cycles(50000);
+                     servo_cycle_gradual(activated_direction);
+                     // Update the last distance with the target position in the new servo frame
+                     ultrasonic_fire_pulse();
+                     last_measured_distance = ultrasonic_get_distance();
                 }
+
+                //if (movement_event_pir_only())
+               // {
+                 //   servo_cycle_gradual(activated_direction);
+                    //__delay_cycles(50000);
+               // }
                 break;
 
             case SWEEP:
