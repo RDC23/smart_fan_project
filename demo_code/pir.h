@@ -9,14 +9,14 @@
 
 #include <msp430fr4133.h>
 
-#define PIR_LEFT BIT5  // P1.5
-#define PIR_MID BIT4   // P1.4
-#define PIR_RIGHT BIT3 // P1.3
+#define PIR_LEFT BIT4  // P1.4
+#define PIR_MID BIT3   // P1.3
+#define PIR_RIGHT BIT5 // P1.5
 
 typedef enum {
-    LEFT = 160,
+    LEFT = 20,
     MID = 90,
-    RIGHT = 20
+    RIGHT = 160
 } PIR_direction_t;
 
 void pir_init();

@@ -129,7 +129,6 @@ int main(void)
     pir_init();
     // ultrasonic_setup_pins();
     init_GPIO();
-    fan_init();
     servo_init();
     servo_to_angle(MID);
     Init_LCD();
@@ -146,6 +145,9 @@ int main(void)
     char welcome_message_3[] = "  Ensure healthy   lives and promote well-being for all at all ages";
     ssd1306_printText(0, 4, welcome_message_3);
     __delay_cycles(10000000);
+    
+    // Start the fan
+    fan_init();
 
     ssd1306_clearDisplay();
 
@@ -255,9 +257,10 @@ int main(void)
                 //     last_measured_distance = ultrasonic_get_distance();
                 // }
 
-                if movement_event_pir_only()
+                if (movement_event_pir_only())
                 {
                     servo_cycle_gradual(activated_direction);
+                    __delay_cycles(50000);
                 }
                 break;
 

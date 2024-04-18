@@ -46,4 +46,5 @@ void servo_cycle_gradual(int new_angle) {
         servo_to_angle(inter_angle);
         SERVO_DELAY();
     }
+    cur_servo_ang = inter_angle;
 }
