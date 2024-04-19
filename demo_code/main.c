@@ -1,7 +1,7 @@
 // main.c
 // Author : Ross Cathcart
 // Module: Part of Smart Fan Project
-// Last update : 29/03/2024 - added SDG message to screen at startup
+// Last update : 19/04/2024 - added SDG message to screen at startup
 // This is the main code file to handle the business level logic and interact with components via 
 // the API's deveoped.
 
@@ -88,18 +88,6 @@ bool movement_event(int cdist)
     }
 }
 
-bool movement_event_pir_only()
-{
-    if (activated_direction != cur_servo_ang)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
 void cycle_fan_mode()
 {
     switch (current_mode)
@@ -123,8 +111,7 @@ int main(void)
     WDTCTL = WDTPW | WDTHOLD;
     PMM_unlockLPM5();
 
-    // Setup Peripherals
-    
+    // Setup Peripherals    
     init_thermistor();
     pir_init();
     ultrasonic_setup_pins();
@@ -180,8 +167,7 @@ int main(void)
             fan_temp_to_speed(current_temperature);
             fan_speed_to_power_LED();
 
-            // 5) Update the OLED display
-            
+            // 5) Update the OLED display            
             refresh_counter++;
             if (refresh_counter == REFRESH_LIM)
             {
@@ -207,7 +193,8 @@ int main(void)
                 {
                    speed_buffer[j] = ' ';
                 }
-                speed_buffer[sizeof(speed_buffer)-1] = '\0';  // Ensure null termination
+                // Ensure null termination
+                speed_buffer[sizeof(speed_buffer)-1] = '\0';  
                 ssd1306_printText(0, 3, speed_buffer);
 
 
@@ -244,7 +231,6 @@ int main(void)
             case TRACK:
 
                 // Fire ultrasonic pulse to provide current distance measurement
-
                 ultrasonic_fire_pulse();
                 current_dist = ultrasonic_get_distance();
 
@@ -256,12 +242,6 @@ int main(void)
                      ultrasonic_fire_pulse();
                      last_measured_distance = ultrasonic_get_distance();
                 }
-
-                //if (movement_event_pir_only())
-               // {
-                 //   servo_cycle_gradual(activated_direction);
-                    //__delay_cycles(50000);
-               // }
                 break;
 
             case SWEEP:
@@ -296,7 +276,7 @@ int main(void)
             }
         }
 
-        else // Delegating tasks to functions leads to poor responsiveness in the else clause
+        else
         {
             // Perform standby mode actions
             fan_stop();
@@ -326,7 +306,7 @@ int main(void)
             {
               speed_buffer[j] = ' ';
             }
-            speed_buffer[sizeof(speed_buffer)-1] = '\0';  // Ensure null termination
+            speed_buffer[sizeof(speed_buffer)-1] = '\0'; 
             ssd1306_printText(0, 3, speed_buffer);
 
             // Efficiency display update
