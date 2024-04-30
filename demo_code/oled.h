@@ -1,7 +1,7 @@
 // oled.h
 // Author: Ruihang Wang
 // Module: Smart Fan Project
-// Last update: 07/03/2024
+// Last update: 30/04/2024 - added a smile to the screen at startup
 // Description: Implementation file for OLED display functions.
 
 #ifndef _OLED_H
@@ -77,5 +77,6 @@ void ssd1306_printUI32(unsigned char, unsigned char, unsigned int, unsigned char
 unsigned char digits(unsigned int);
 void ultoa(unsigned int, char *);
 void reverse(char *);
+void draw_simple_smile(void);
 
 #endif

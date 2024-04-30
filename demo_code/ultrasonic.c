@@ -1,7 +1,7 @@
 // ultrasonic.c
 // Author: Ross Cathcart
 // Module: Smart Fan Project
-// Last update: 29/02/2024 - updated distance conversion formula to simplify computation
+// Last update: 25/03/2024 - updated distance conversion formula to simplify computation
 // Description: Provides function definitions to setup HC-SR04 ultrasonic sensor and ISR code
 // for timing and distance measurement using Timer A1.
 

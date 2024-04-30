@@ -1,7 +1,7 @@
 // thermistor.h
 // Author: Ross Cathcart
 // Module: Smart Fan Project
-// Last update: 29/02/2024 - updated thermistor pin to use P8.1 for ADC channel A9
+// Last update: 29/03/2024 - updated thermistor pin to use P8.1 for ADC channel A9
 // Description: Provides function prototypes for using a thermistor-based circuit to record and
 // process external temperature readings using the ADC.
 

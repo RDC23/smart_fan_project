@@ -1,7 +1,7 @@
 // oled.c
-// Author: Ruihang Wang
+// Author: Ruihang Wang (Modified Ross Cathcart)
 // Module: Smart Fan Project
-// Last update: 07/03/2024
+// Last update: 30/04/2024 - added a smile to the screen at startup
 // Description: Implementation file for OLED display functions.
 
 #include "oled.h"
@@ -364,6 +364,7 @@ void OLED_Clear(void)
     }
 }
 
+
 // Display ON
 void OLED_On(void)  
 {  
@@ -378,3 +379,35 @@ void OLED_On(void)
         }
     }
 }
+
+// Function to draw a large smile from the top left to the top right, rising to the bottom center
+void draw_simple_smile(void) {
+    // Clear the display first to make the background dark
+    OLED_Clear();
+
+    // Define the width of the display
+    int displayWidth = 127; 
+    int centerY = 0;        // Center position for the curve (adjust based on display height)
+    int minHeight = 0;      // Minimum height of the smile at the edges
+    int maxHeight = 10;      // Maximum height of the smile at the center
+
+    // Loop over the width of the display to calculate the position of each part of the smile
+    for (int x = 0; x < displayWidth; x++) {
+        int deltaX = x - displayWidth / 2; // Distance from the center of the display
+        double normalizedX = (double)deltaX / (displayWidth / 2); // Normalize deltaX to range from -1 to 1
+
+        // Calculate a smooth curve using a quadratic function, adjusting it to fit within display bounds
+        double scale = 1 - normalizedX * normalizedX; // Creates a parabolic curve
+        int yPos = centerY + (int)((maxHeight - centerY) * scale - (centerY - minHeight));
+
+        // Ensure yPos is within display bounds
+        yPos = (yPos < minHeight) ? minHeight : yPos;
+        yPos = (yPos > maxHeight) ? maxHeight : yPos;
+
+        // Set the horizontal position and draw only the thin line of the smile
+        OLED_Set_Pos(x, yPos);
+        OLED_WR_Byte(0xFF, OLED_DATA); // Set the pixel (light color for the smile)
+    }
+}
+
+

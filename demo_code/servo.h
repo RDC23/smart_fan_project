@@ -14,8 +14,8 @@
 #define PWM_PERIOD 640    // ACLK must count to 640 to generate a 20ms output signal
 #define PWM_MIN_DUTY 16   // Theoretically should be 32 - 1ms, 5% duty cycle
 #define PWM_MAX_DUTY 78   // Theoretically should be 64 - 2ms, 10% duty cycle
-#define SERVO_MIN_ANGLE 20 // degrees
-#define SERVO_MAX_ANGLE 160 // degrees
+#define SERVO_MIN_ANGLE 30 // degrees
+#define SERVO_MAX_ANGLE 150 // degrees
 #define SERVO_DELAY()(__delay_cycles(30000)) // Adjust delay cycles arg for delay time
 
 extern int cur_servo_ang;  // Current servo angle accessible to main code

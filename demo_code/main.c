@@ -1,7 +1,7 @@
 // main.c
 // Author : Ross Cathcart
 // Module: Part of Smart Fan Project
-// Last update : 19/04/2024 - added SDG message to screen at startup
+// Last update : 30/04/2024 - improved tracking algorithm to use averaging
 // This is the main code file to handle the business level logic and interact with components via 
 // the API's deveoped.
 
@@ -28,6 +28,8 @@
 #define BUTTON_DEBOUNCE() (__delay_cycles(100000))
 #define ANGLE_INCREMENT_SWEEP 5 // The number of degrees the servo should 'sweep' per iteration of main loop
 #define REFRESH_LIM 10 // Iterations of main code before OLED is updated
+#define NUM_SAMPLES 8 // Distance measurements
+
 
 // TYPEDEFS
 typedef enum
@@ -51,8 +53,27 @@ volatile bool fan_on = true;
 volatile bool needs_torque_boost = false;
 volatile int to_angle = 0;
 volatile int refresh_counter = 0;
+static int distance_readings[NUM_SAMPLES] = {0};
 
 // HELPER FUNCTIONS
+bool stable_distance(int current_dist, int threshold) 
+{
+    int sum = 0;
+    for (int i = 0; i < NUM_SAMPLES - 1; i++) 
+    {
+        // Shift the window
+        distance_readings[i] = distance_readings[i + 1]; 
+        sum += distance_readings[i];
+    }
+    // Add the latest reading
+    distance_readings[NUM_SAMPLES - 1] = current_dist; 
+    sum += current_dist;
+
+    int average = sum / NUM_SAMPLES;
+
+    return abs(current_dist - average) < threshold;
+}
+
 void init_GPIO()
 {
     // Setup button to toggle fan mode
@@ -76,13 +97,13 @@ void init_GPIO()
     P5OUT &= ~(LOW_POWER_LED | MED_POWER_LED | HIGH_POWER_LED);
 }
 
-bool movement_event(int cdist)
+bool movement_event(int cdist) 
 {
-    if ((activated_direction != cur_servo_ang) && (abs(cdist - last_measured_distance) > SIG_DELTA_DISTANCE))
+    if ((activated_direction != cur_servo_ang) && stable_distance(cdist, SIG_DELTA_DISTANCE)) 
     {
         return true;
-    }
-    else
+    } 
+    else 
     {
         return false;
     }
@@ -123,6 +144,10 @@ int main(void)
     OLED12864_Configuration();
     ssd1306_init();       
     ssd1306_clearDisplay();
+    
+    draw_simple_smile(); 
+    __delay_cycles(2000000);  
+    ssd1306_clearDisplay();   
     
     // Print a welcome message
     char welcome_message_1[] = "SDG3 : GOOD HEALTH AND WELLBEING";
@@ -239,6 +264,7 @@ int main(void)
                 {
                      servo_cycle_gradual(activated_direction);
                      // Update the last distance with the target position in the new servo frame
+                     __delay_cycles(200000);
                      ultrasonic_fire_pulse();
                      last_measured_distance = ultrasonic_get_distance();
                 }
@@ -319,7 +345,6 @@ int main(void)
 }
 
 // INTERRUPT SERVICE ROUTINES FOR I/O PORTS
-
 #pragma vector = PORT1_VECTOR
 __interrupt void P1_ISR(void)
 {

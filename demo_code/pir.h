@@ -1,7 +1,7 @@
 // pir.h
 // Author: Ross Cathcart
 // Module: Smart Fan Project
-// Last update: 29/02/2024 - added define statements for PIR pins
+// Last update: 07/03/2024 - added define statements for PIR pins
 // Description: Interface file for PIR sensor, containing function prototypes, defines, and custom typedefs.
 
 #ifndef PIR_H_
