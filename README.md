@@ -1,11 +1,9 @@
-## demo_code
-Contains the main code which will be loaded onto the MSP430 for the demonstration.
+## Cool Colin - Embedded Systems Smart Fan Project ☀️
 
-## Software Testing
-Contains isolated projects that test the functionality of individual peripherals using test stimuli. 
+**Contributors**: Ross Cathcart, Fraser O'Regan, Ruihang Wang
 
-## PCB
-Contains the schematic and board files for the project.
+This project oversaw the design and construction of a desktop “smart fan” which uses tracking technology to enable the fan to autonomously follow a nearby person, making it ideal for individual use in dynamic workspaces. The tracking mechanism should increase the efficacy in cooling the person by ensuring that it is optimally positioned to promote convective heat loss from the target, reducing heat fatigue and allowing the user to feel more comfortable. 
 
-## Mentor Meetings
-Contains relevant mentor meeting notes and other documents pertaining to the project progress.
+![Alt text](/Images/build.jpg)
+
+---
