@@ -18,7 +18,7 @@ This project oversaw the design and construction of a desktop “smart fan” wh
 
 ### Tracking Mode Demonstration 
 
-https://github.com/RDC23/smart_fan_project/blob/main/Images/fan_motion_track%20(1).mp4
+https://github.com/RDC23/smart_fan_project/assets/112988260/db7c453c-c118-40b3-909e-dfdff9f8903a
 
 
 
